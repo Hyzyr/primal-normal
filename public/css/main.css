@@ -446,8 +446,9 @@ svg {
   width: 100%;
 }
 .hallscreen__content .input textarea {
+  top: 10%;
   width: 90%;
-  height: 71%;
+  height: 86%;
 }
 
 /*# sourceMappingURL=main.css.map */
