@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
@@ -11,12 +11,16 @@ const useScreenNavigition = ({
   const sections = wrapperRef.current
     ? wrapperRef.current.querySelectorAll(sectionClassName)
     : 0;
-  const sectionsCount = sections.length;
+  let sectionsCount = sections.length;
 
   useGSAP(
     () => {
-      const transformX = (100 / sectionsCount).toFixed(2) * page;
+      if (!sectionsCount)
+        sectionsCount =
+          wrapperRef.current.querySelectorAll(sectionClassName).length;
 
+      const transformX = (100 / sectionsCount).toFixed(2) * page;
+      console.log('page: ', page, transformX, sectionsCount);
       gsap.to(wrapperRef.current, {
         xPercent: -transformX,
         duration: 1,
@@ -24,7 +28,7 @@ const useScreenNavigition = ({
       });
     },
     {
-      dependencies: [page],
+      dependencies: [page, sectionsCount],
       scope: wrapperRef,
     }
   );

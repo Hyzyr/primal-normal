@@ -6,7 +6,7 @@
   padding: 0 30px;
   z-index: 2;
 
-  font-size: 10vh;
+  font-size: 10.5vh;
   @include noSelect;
 
   &__inner {
@@ -42,21 +42,45 @@
     }
   }
   &-btn {
+    position: relative;
     cursor: pointer;
     display: flex;
-    transform: translateY(-4%);
+    transform: translateY(-6%);
     transition: 0.23s ease-out;
+    font-size: inherit;
 
     img {
       height: 1em;
       width: auto;
     }
     &:hover {
-      transform: translate(0);
+      transform: translateY(-2%);
     }
     &:active {
       transform: translate(0);
       filter: grayscale(0.2);
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(#ffc2b5, transparent 70%);
+      transform: translateY(-100%);
+      transition: 0.24s ease-in;
+      opacity: 0;
+    }
+    &.active {
+      transform: translate(0) !important;
+
+      &:after {
+        opacity: 1;
+        mix-blend-mode: hard-light;
+        transform: translateY(-50%); 
+      }
     }
   }
 }

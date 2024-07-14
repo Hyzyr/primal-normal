@@ -2,10 +2,12 @@ import React, { useRef } from 'react';
 import useScreenNavigition from 'src/hooks/useScreenNavigition';
 import ScreenWrapper from './screens/ScreenWrapper';
 import AppScreen from './screens/AppScreen';
+import WalletScreen from './screens/WalletScreen';
 
 const Home = () => {
   const ref = useRef(null);
   const screenNav = useScreenNavigition({
+    initialPage: 1,
     wrapperRef: ref,
   });
 
@@ -34,12 +36,12 @@ const Home = () => {
         <ScreenWrapper
           className="_second"
           bgVideo="/videos/mid_background.webm">
-          <AppScreen />
+          <WalletScreen />
         </ScreenWrapper>
         <ScreenWrapper
           className="_third"
           bgVideo="/videos/right_background.webm">
-          <AppScreen />
+          {/* <AppScreen /> */}
         </ScreenWrapper>
       </div>
     </div>
