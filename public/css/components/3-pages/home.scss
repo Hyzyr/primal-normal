@@ -81,8 +81,6 @@
     }
   }
 }
-.appscreen {
-}
 .walletscreen {
   &__content {
     &-left {
@@ -91,9 +89,33 @@
       left: 5%;
       width: 42%;
       height: 76%;
-
-      .input{
+      .input {
         width: 100%;
+      }
+    }
+  }
+}
+.hallscreen {
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 7%;
+    left: 3.9%;
+    width: 95%;
+    &-left {
+      width: 50%;
+    }
+    &-right {
+      width: 50%;
+    }
+    .input {
+      font-size: 8.79vh;
+      width: 100%;
+      textarea {
+        width: 90%;
+        height: 71%;
       }
     }
   }

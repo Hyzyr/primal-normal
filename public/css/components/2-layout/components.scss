@@ -15,7 +15,8 @@
   font-size: 5vh;
   width: max-content;
 
-  input {
+  input,
+  textarea {
     position: absolute;
     top: 20%;
     left: 4%;
@@ -82,6 +83,9 @@
     &::placeholder {
       color: rgba($black, 0.5);
     }
+  }
+  textarea {
+    @include hideScroll;
   }
 }
 // .button {

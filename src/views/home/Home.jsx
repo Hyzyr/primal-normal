@@ -1,13 +1,14 @@
-import React, { useRef } from 'react';
-import useScreenNavigition from 'src/hooks/useScreenNavigition';
-import ScreenWrapper from './screens/ScreenWrapper';
-import AppScreen from './screens/AppScreen';
-import WalletScreen from './screens/WalletScreen';
+import React, { useRef } from "react";
+import useScreenNavigition from "src/hooks/useScreenNavigition";
+import ScreenWrapper from "./screens/ScreenWrapper";
+import AppScreen from "./screens/AppScreen";
+import WalletScreen from "./screens/WalletScreen";
+import HallScreen from "./screens/HallScreen";
 
 const Home = () => {
   const ref = useRef(null);
   const screenNav = useScreenNavigition({
-    initialPage: 1,
+    initialPage: 2,
     wrapperRef: ref,
   });
 
@@ -17,31 +18,36 @@ const Home = () => {
         type="button"
         disabled={screenNav?.prevDisabled}
         className="home-arrow home-arrow-left"
-        onClick={() => screenNav.prevPage()}>
+        onClick={() => screenNav.prevPage()}
+      >
         <img src="/images/components/arrow-left.png" alt="" />
       </button>
       <button
         type="button"
         disabled={screenNav?.nextDisabled}
         className="home-arrow home-arrow-right"
-        onClick={() => screenNav.nextPage()}>
+        onClick={() => screenNav.nextPage()}
+      >
         <img src="/images/components/arrow-right.png" alt="" />
       </button>
       <div className="home" ref={ref}>
         <ScreenWrapper
           className="_first"
-          bgVideo="/videos/left_background.webm">
+          bgVideo="/videos/left_background.webm"
+        >
           <AppScreen />
         </ScreenWrapper>
         <ScreenWrapper
           className="_second"
-          bgVideo="/videos/mid_background.webm">
+          bgVideo="/videos/mid_background.webm"
+        >
           <WalletScreen />
         </ScreenWrapper>
         <ScreenWrapper
           className="_third"
-          bgVideo="/videos/right_background.webm">
-          {/* <AppScreen /> */}
+          bgVideo="/videos/right_background.webm"
+        >
+          <HallScreen />
         </ScreenWrapper>
       </div>
     </div>

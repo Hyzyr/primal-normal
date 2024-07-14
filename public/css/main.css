@@ -159,7 +159,8 @@ svg {
   font-size: 5vh;
   width: max-content;
 }
-.input input {
+.input input,
+.input textarea {
   position: absolute;
   top: 20%;
   left: 4%;
@@ -177,7 +178,8 @@ svg {
   letter-spacing: -0.04em;
   line-height: 1;
 }
-.input input::placeholder {
+.input input::placeholder,
+.input textarea::placeholder {
   font-family: "Primal Nomad Alphabet", sans-serif;
   color: rgba(16, 16, 16, 0.8);
 }
@@ -220,6 +222,13 @@ svg {
 .input input:focus::placeholder,
 .input textarea:focus::placeholder {
   color: rgba(16, 16, 16, 0.5);
+}
+.input textarea {
+  scrollbar-width: none; /* Firefox 64 */
+  -ms-overflow-style: none; /* Internet Explorer 11 */
+}
+.input textarea::-webkit-scrollbar { /** WebKit */
+  display: none;
 }
 
 .ratioImage {
@@ -416,3 +425,29 @@ svg {
 .walletscreen__content-left .input {
   width: 100%;
 }
+
+.hallscreen__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 7%;
+  left: 3.9%;
+  width: 95%;
+}
+.hallscreen__content-left {
+  width: 50%;
+}
+.hallscreen__content-right {
+  width: 50%;
+}
+.hallscreen__content .input {
+  font-size: 8.79vh;
+  width: 100%;
+}
+.hallscreen__content .input textarea {
+  width: 90%;
+  height: 71%;
+}
+
+/*# sourceMappingURL=main.css.map */
