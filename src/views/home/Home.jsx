@@ -1,15 +1,32 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ScreenWrapper from './screens/ScreenWrapper';
 import AppScreen from './screens/AppScreen';
 import WalletScreen from './screens/WalletScreen';
 import HallScreen from './screens/HallScreen';
 import HomeBg from './HomeBg';
 import useHomeBg from './hooks/useHomeBg';
+import { PageScreens } from 'src/constants/AppContstants';
+import useScreen from './hooks/useScreen';
 
-const Home = () => {
+const Home = ({ screen, prevScreen }) => {
   const ref = useRef(null);
 
-  const bgNav = useHomeBg({ wrapperRef: ref,});
+  const bgNav = useHomeBg({ wrapperRef: ref });
+  const screenNav = useScreen();
+
+  useEffect(() => {
+    if (!ref.current) return;
+    console.log({
+      prevScreen,
+      screen,
+    });
+
+    const prevScreenDom = ref.current.querySelector(`#${prevScreen}`);
+    const screenNavDom = ref.current.querySelector(`#${screen}`);
+
+    if (prevScreen) screenNav.hideScreen(prevScreenDom);
+    if (screen) screenNav.showScreen(screenNavDom, prevScreen ? '<=0.4' : null);
+  }, [screen, prevScreen]);
 
   return (
     <div className="home__wrapper">
@@ -29,13 +46,22 @@ const Home = () => {
       </button>
       <div className="home" ref={ref}>
         <HomeBg />
-        <ScreenWrapper className="_first">
+        <ScreenWrapper
+          id={PageScreens.ORDINAL}
+          active={screen === PageScreens.ORDINAL}
+          className="_first">
           <AppScreen />
         </ScreenWrapper>
-        <ScreenWrapper className="_second">
+        <ScreenWrapper
+          id={PageScreens.WALLET}
+          active={screen === PageScreens.WALLET}
+          className="_second">
           <WalletScreen />
         </ScreenWrapper>
-        <ScreenWrapper className="_third">
+        <ScreenWrapper
+          id={PageScreens.BOONGA}
+          active={screen === PageScreens.BOONGA}
+          className="_third">
           <HallScreen />
         </ScreenWrapper>
       </div>

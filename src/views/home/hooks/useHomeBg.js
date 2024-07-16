@@ -27,14 +27,14 @@ const useHomeBg = ({
         { xPercent: 0 },
         {
           xPercent: -100 * d,
-          duration: 1,
+          duration: 1.3,
           onStart: () => setIsAnimating(true),
         }
       )
       .fromTo(
         screenNextPage,
         { xPercent: 100 * d },
-        { xPercent: 0, duration: 1 },
+        { xPercent: 0, duration: 1.3 },
         '<'
       );
     setPage(pageIndex);
