@@ -9,9 +9,7 @@ import useHomeBg from './hooks/useHomeBg';
 const Home = () => {
   const ref = useRef(null);
 
-  const bgNav = useHomeBg({
-    wrapperRef: ref,
-  });
+  const bgNav = useHomeBg({ wrapperRef: ref,});
 
   return (
     <div className="home__wrapper">

@@ -1,7 +1,10 @@
 import React from 'react';
 
-const ScreenWrapper = ({ bgVideo = '', className = '', children }) => {
-  return <section className={`home__section ${className}`}>{children}</section>;
+const ScreenWrapper = ({ active = false, className = '', children }) => {
+  let fullClassName = `home__section ${className}`;
+  fullClassName += active ? ' active' : '';
+
+  return <section className={fullClassName}>{children}</section>;
 };
 
 export default ScreenWrapper;
