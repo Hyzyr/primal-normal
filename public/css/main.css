@@ -461,3 +461,129 @@ svg {
   width: 90%;
   height: 86%;
 }
+.hallscreen__container {
+  position: absolute;
+  top: 28.8%;
+  right: 3.8%;
+  width: 51.7%;
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
+}
+.hallscreen__slider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1vh;
+}
+.hallscreen__slider-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8.1vh;
+}
+.hallscreen__slider-arrow._left {
+  right: unset;
+  left: 0;
+}
+.hallscreen__slider-arrow img {
+  width: 100%;
+  height: auto;
+}
+.hallscreen__slider-row {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+.hallscreen__slider-item {
+  flex-shrink: 0;
+  width: 100%;
+  height: 6vh;
+  background: red;
+}
+.hallscreen__slider-item:nth-child(2) {
+  background: black;
+}
+
+.wallscreen__container {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  width: 100vh;
+  max-width: 65vw;
+}
+.wallscreen__container-row {
+  display: flex;
+  gap: 2vh;
+  width: 100%;
+}
+.wallscreen__frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+}
+.wallscreen__frame-bg {
+  width: 100%;
+}
+.wallscreen__frame-bg img {
+  width: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 1440px) and (min-height: 1000px) and (max-height: 1024px) {
+  .hallscreen__container {
+    top: 31%;
+    gap: 8vh;
+  }
+  .hallscreen__content {
+    bottom: 11.8%;
+  }
+  .hallscreen__content .input {
+    font-size: 7.4vh;
+  }
+}
+@media (max-width: 1440px) and (min-height: 910px) and (max-height: 960px) {
+  .hallscreen__container {
+    top: 29.5%;
+    gap: 9.4vh;
+  }
+  .hallscreen__content {
+    bottom: 7.5%;
+  }
+}
+@media (max-width: 1280px) and (min-height: 1000px) and (max-height: 1024px) {
+  .hallscreen__container {
+    top: 32%;
+    gap: 7vh;
+  }
+  .hallscreen__content {
+    bottom: 14.8%;
+  }
+  .hallscreen__content .input {
+    font-size: 7.2vh;
+  }
+}
+@media (max-width: 1280px) and (min-height: 800px) and (max-height: 832px) {
+  .hallscreen__container {
+    top: 29%;
+    gap: 9.8vh;
+  }
+  .hallscreen__content {
+    bottom: 6.9%;
+  }
+}
+@media (max-width: 1024px) and (min-height: 700px) and (max-height: 768px) {
+  .hallscreen__container {
+    top: 31%;
+    gap: 7.8vh;
+  }
+  .hallscreen__content {
+    bottom: 12.3%;
+  }
+  .hallscreen__content .input {
+    font-size: 7.79vh;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

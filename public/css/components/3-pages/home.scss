@@ -130,4 +130,139 @@
       }
     }
   }
+  &__container {
+    position: absolute;
+    top: 28.8%;
+    right: 3.8%;
+    width: 51.7%;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+  }
+  &__slider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    &-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 8.1vh;
+      &._left {
+        right: unset;
+        left: 0;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    &-row {
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+    }
+    &-item {
+      flex-shrink: 0;
+      width: 100%;
+      height: 6vh;
+      background: red;
+      &:nth-child(2) {
+        background: black;
+      }
+    }
+  }
+}
+.wallscreen {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    width: 100vh;
+    max-width: 65vw;
+    &-row {
+      display: flex;
+      gap: 2vh;
+      width: 100%;
+    }
+  }
+  &__frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    &-bg {
+      width: 100%;
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+@mixin home-1440-960 {
+  .hallscreen {
+    &__container {
+      top: 29.5%;
+      gap: 9.4vh;
+    }
+    &__content {
+      bottom: 7.5%;
+    }
+  }
+}
+@mixin home-1440-1024 {
+  .hallscreen {
+    &__container {
+      top: 31%;
+      gap: 8vh;
+    }
+    &__content {
+      bottom: 11.8%;
+      .input {
+        font-size: 7.4vh;
+      }
+    }
+  }
+}
+@mixin home-1280-1024 {
+  .hallscreen {
+    &__container {
+      top: 32%;
+      gap: 7vh;
+    }
+    &__content {
+      bottom: 14.8%;
+      .input{
+        font-size: 7.2vh;
+      }
+    }
+  }
+}
+@mixin home-1280-832 {
+  .hallscreen {
+    &__container {
+      top: 29%;
+      gap: 9.8vh;
+    }
+    &__content {
+      bottom: 6.9%;
+    }
+  }
+}
+@mixin home-1024-768 {
+  .hallscreen {
+    &__container {
+      top: 31%;
+      gap: 7.8vh;
+    }
+    &__content {
+      bottom: 12.3%;
+      .input{
+        font-size: 7.79vh;
+      }
+    }
+  }
 }

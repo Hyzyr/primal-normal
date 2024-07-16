@@ -7,6 +7,7 @@ import HomeBg from './HomeBg';
 import useHomeBg from './hooks/useHomeBg';
 import { PageScreens } from 'src/constants/AppContstants';
 import useScreen from './hooks/useScreen';
+import WallScreen from './screens/WallScreen';
 
 const Home = ({ screen, prevScreen }) => {
   const ref = useRef(null);
@@ -58,11 +59,17 @@ const Home = ({ screen, prevScreen }) => {
           className="_second">
           <WalletScreen />
         </ScreenWrapper>
-        <ScreenWrapper
+        {/* <ScreenWrapper
           id={PageScreens.BOONGA}
           active={screen === PageScreens.BOONGA}
           className="_third">
           <HallScreen />
+        </ScreenWrapper> */}
+        <ScreenWrapper
+          id={PageScreens.BOONGA}
+          active={screen === PageScreens.BOONGA}
+          className="_third">
+          <WallScreen />
         </ScreenWrapper>
       </div>
     </div>
