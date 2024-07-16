@@ -59,18 +59,18 @@ const Home = ({ screen, prevScreen }) => {
           className="_second">
           <WalletScreen />
         </ScreenWrapper>
-        {/* <ScreenWrapper
-          id={PageScreens.BOONGA}
-          active={screen === PageScreens.BOONGA}
-          className="_third">
-          <HallScreen />
-        </ScreenWrapper> */}
         <ScreenWrapper
           id={PageScreens.BOONGA}
           active={screen === PageScreens.BOONGA}
           className="_third">
-          <WallScreen />
+          <HallScreen />
         </ScreenWrapper>
+        {/* <ScreenWrapper
+          id={PageScreens.BOONGA}
+          active={screen === PageScreens.BOONGA}
+          className="_third">
+          <WallScreen />
+        </ScreenWrapper> */}
       </div>
     </div>
   );
