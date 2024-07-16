@@ -1,14 +1,15 @@
-import React, { useRef } from "react";
-import useScreenNavigition from "src/hooks/useScreenNavigition";
-import ScreenWrapper from "./screens/ScreenWrapper";
-import AppScreen from "./screens/AppScreen";
-import WalletScreen from "./screens/WalletScreen";
-import HallScreen from "./screens/HallScreen";
+import React, { useRef } from 'react';
+import ScreenWrapper from './screens/ScreenWrapper';
+import AppScreen from './screens/AppScreen';
+import WalletScreen from './screens/WalletScreen';
+import HallScreen from './screens/HallScreen';
+import HomeBg from './HomeBg';
+import useHomeBg from './hooks/useHomeBg';
 
 const Home = () => {
   const ref = useRef(null);
-  const screenNav = useScreenNavigition({
-    initialPage: 2,
+
+  const bgNav = useHomeBg({
     wrapperRef: ref,
   });
 
@@ -16,37 +17,27 @@ const Home = () => {
     <div className="home__wrapper">
       <button
         type="button"
-        disabled={screenNav?.prevDisabled}
+        disabled={bgNav?.prevDisabled}
         className="home-arrow home-arrow-left"
-        onClick={() => screenNav.prevPage()}
-      >
+        onClick={() => bgNav.prevPage()}>
         <img src="/images/components/arrow-left.png" alt="" />
       </button>
       <button
         type="button"
-        disabled={screenNav?.nextDisabled}
+        disabled={bgNav?.nextDisabled}
         className="home-arrow home-arrow-right"
-        onClick={() => screenNav.nextPage()}
-      >
+        onClick={() => bgNav.nextPage()}>
         <img src="/images/components/arrow-right.png" alt="" />
       </button>
       <div className="home" ref={ref}>
-        <ScreenWrapper
-          className="_first"
-          bgVideo="/videos/left_background.webm"
-        >
+        <HomeBg />
+        <ScreenWrapper className="_first">
           <AppScreen />
         </ScreenWrapper>
-        <ScreenWrapper
-          className="_second"
-          bgVideo="/videos/mid_background.webm"
-        >
+        <ScreenWrapper className="_second">
           <WalletScreen />
         </ScreenWrapper>
-        <ScreenWrapper
-          className="_third"
-          bgVideo="/videos/right_background.webm"
-        >
+        <ScreenWrapper className="_third">
           <HallScreen />
         </ScreenWrapper>
       </div>

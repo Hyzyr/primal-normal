@@ -354,15 +354,22 @@ svg {
   height: 100%;
   flex-shrink: 0;
 }
-.home__section-bg {
-  position: absolute;
+.home__bg {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
 }
-.home__section-bg video {
+.home__bg-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.home__bg-screen video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -394,7 +401,7 @@ svg {
 }
 .home-arrow:disabled {
   cursor: default;
-  filter: contrast(0.5) grayscale(0.2) brightness(0.9);
+  filter: grayscale(0.15);
   transform: translateY(-50%);
 }
 
@@ -450,5 +457,3 @@ svg {
   width: 90%;
   height: 86%;
 }
-
-/*# sourceMappingURL=main.css.map */
