@@ -7,6 +7,22 @@ const HallScreen = () => {
       <div className="hallscreen__bg screen__bg">
         <img src="/images/screens/boonga-screen.png" alt="app-screen-frame" />
       </div>
+      <div className="hallscreen__group">
+        <button type="button" className="hallscreen__button _sm">
+          <span>SAVE-NGA!</span>
+          <div className="hallscreen__button-bg">
+            <img src="/images/components/button-left.png" alt="" />
+          </div>
+        </button>
+        <button type="button" className="hallscreen__button">
+          <span>
+            UPLOAD YOUR <br /> PDF/IMAGE!
+          </span>
+          <div className="hallscreen__button-bg">
+            <img src="/images/components/button-right.png" alt="" />
+          </div>
+        </button>
+      </div>
       <div className="hallscreen__container">
         <div className="hallscreen__slider">
           <button type="button" className="hallscreen__slider-arrow">
