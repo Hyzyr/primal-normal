@@ -1,7 +1,7 @@
 import React from "react";
 import Textarea from "src/components/textarea/Textarea";
 
-const HallScreen = () => {
+const BoongaScreen = () => {
   return (
     <div className="hallscreen screen">
       <div className="hallscreen__bg screen__bg">
@@ -65,4 +65,4 @@ const HallScreen = () => {
   );
 };
 
-export default HallScreen;
+export default BoongaScreen;

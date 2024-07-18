@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import ScreenWrapper from './screens/ScreenWrapper';
 import AppScreen from './screens/AppScreen';
 import WalletScreen from './screens/WalletScreen';
-import HallScreen from './screens/HallScreen';
+import BoongaScreen from './screens/BoongaScreen';
 import HomeBg from './HomeBg';
 import useHomeBg from './hooks/useHomeBg';
 import { PageScreens } from 'src/constants/AppContstants';
@@ -62,7 +62,7 @@ const Home = ({ screen, prevScreen }) => {
           id={PageScreens.BOONGA}
           active={screen === PageScreens.BOONGA}
           className="_third">
-          <HallScreen />
+          <BoongaScreen />
         </ScreenWrapper>
         <ScreenWrapper
           id={PageScreens.HALL}
