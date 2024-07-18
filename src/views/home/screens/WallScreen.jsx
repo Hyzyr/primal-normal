@@ -60,6 +60,9 @@ const WallScreen = () => {
 const WallItem = ({ text }) => {
   return (
     <div className="wallscreen__frame">
+      <div className="wallscreen__frame-image">
+        <img src="/images/placeholder.jpg" alt="placeholder" />
+      </div>
       <div className="wallscreen__frame-text">{text}</div>
       <div className="wallscreen__frame-bg">
         <img src="/images/wall/frame-4.png" alt="app-screen-frame" />
