@@ -166,6 +166,11 @@
         &::placeholder {
           color: #33251c;
         }
+        &:focus {
+          &::placeholder {
+            opacity: 0.8;
+          }
+        }
       }
       &__bg {
         height: 100%;
@@ -313,7 +318,7 @@
     &-row {
       display: flex;
       flex-wrap: wrap;
-      gap:5vh 2vh;
+      gap: 5vh 2vh;
       width: 100%;
     }
     &-pagination {
@@ -347,10 +352,10 @@
       }
     }
     &:hover {
-      transform: translateY(-2%);
+      transform: translateY(-4%);
     }
     &:active {
-      transform: translateY(-2%);
+      transform: translateY(-4%);
     }
   }
   &__frame {

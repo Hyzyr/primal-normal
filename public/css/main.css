@@ -500,6 +500,9 @@ svg {
 .boongascreen__content .input textarea::placeholder {
   color: #33251c;
 }
+.boongascreen__content .input textarea:focus::placeholder {
+  opacity: 0.8;
+}
 .boongascreen__content .input__bg {
   height: 100%;
 }
@@ -670,10 +673,10 @@ svg {
   height: 100%;
 }
 .wallscreen__button:hover {
-  transform: translateY(-2%);
+  transform: translateY(-4%);
 }
 .wallscreen__button:active {
-  transform: translateY(-2%);
+  transform: translateY(-4%);
 }
 .wallscreen__frame {
   display: flex;
