@@ -458,6 +458,9 @@ svg {
 .boongascreen__content-right {
   height: 100%;
 }
+.boongascreen__content-right .input textarea {
+  font-family: "Primal Nomad Symbol", sans-serif;
+}
 .boongascreen__content-text {
   display: flex;
   align-items: center;
@@ -470,19 +473,31 @@ svg {
   font-weight: 700;
 }
 .boongascreen__content-text-left {
+  margin-top: 0.25em;
   min-width: 4.2em;
   text-align: right;
 }
+.boongascreen__content-text-right {
+  margin-top: 0.25em;
+}
 .boongascreen__content-ico {
+  font-size: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 1.2em;
   min-width: unset !important;
+  transition: 0.15s;
 }
 .boongascreen__content-ico img {
   height: 100%;
   width: auto;
+}
+.boongascreen__content-ico:hover {
+  transform: scale(1.1);
+}
+.boongascreen__content-ico:active {
+  transform: scale(1);
 }
 .boongascreen__content .input {
   font-size: 8.79vh;
@@ -542,7 +557,7 @@ svg {
   align-items: center;
   justify-content: center;
   width: 8.1vh;
-  transition: 0.3s;
+  transition: 0.15s;
 }
 .boongascreen__slider-arrow._left {
   right: unset;
@@ -556,21 +571,26 @@ svg {
   transform: translateY(-2.5%);
 }
 .boongascreen__slider-arrow:active {
-  transform: translateY(-2.5);
+  transform: translateY(0%);
 }
 .boongascreen__slider-row {
   width: 100%;
   display: flex;
   overflow: hidden;
+  gap: 2%;
 }
 .boongascreen__slider-item {
   flex-shrink: 0;
-  width: 100%;
+  width: 15%;
   height: 6vh;
-  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.boongascreen__slider-item:nth-child(2) {
-  background: black;
+.boongascreen__slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .boongascreen__group {
   position: absolute;
@@ -653,9 +673,10 @@ svg {
   position: relative;
   font-size: 3.7vh;
   transition: 0.15s;
+  font-family: "Primal Nomad Alphabet", sans-serif;
 }
 .wallscreen__button span {
-  font-size: 0.7em;
+  font-size: 1.4em;
   font-weight: 700;
   text-shadow: -0.03em 0.03em #fff;
   position: absolute;
@@ -672,7 +693,8 @@ svg {
   height: 100%;
 }
 .wallscreen__button:hover {
-  transform: translateY(-4%);
+  transform: translateY(-2.2%);
+  color: #7d1700;
 }
 .wallscreen__button:active {
   transform: translateY(-4%);
@@ -723,4 +745,83 @@ svg {
   object-fit: contain;
 }
 
-/*# sourceMappingURL=main.css.map */
+@media (max-width: 1440px) and (min-height: 1000px) and (max-height: 1024px) {
+  .boongascreen__container {
+    gap: 4vh;
+  }
+  .boongascreen__content {
+    bottom: 10%;
+  }
+  .boongascreen__content .input {
+    font-size: 7.9vh;
+  }
+  .boongascreen__group {
+    top: 10%;
+    right: 5%;
+  }
+  .boongascreen__button {
+    font-size: 2.8vh;
+  }
+}
+@media (max-width: 1440px) and (min-height: 910px) and (max-height: 960px) {
+  .boongascreen__container {
+    gap: 4vh;
+  }
+  .boongascreen__content {
+    bottom: 6.5%;
+  }
+  .boongascreen__group {
+    top: 8%;
+  }
+  .boongascreen__button {
+    font-size: 3.1vh;
+  }
+}
+@media (max-width: 1280px) and (min-height: 1000px) and (max-height: 1024px) {
+  .boongascreen__container {
+    top: 28%;
+    gap: 3vh;
+  }
+  .boongascreen__content {
+    bottom: 13%;
+  }
+  .boongascreen__content .input {
+    font-size: 7.2vh;
+  }
+  .boongascreen__group {
+    top: 15%;
+  }
+  .boongascreen__button {
+    font-size: 2.6vh;
+  }
+}
+@media (max-width: 1280px) and (min-height: 800px) and (max-height: 832px) {
+  .boongascreen__container {
+    top: 24%;
+    gap: 5vh;
+  }
+  .boongascreen__content {
+    bottom: 6%;
+  }
+  .boongascreen__group {
+    top: 7%;
+  }
+}
+@media (max-width: 1024px) and (min-height: 700px) and (max-height: 768px) {
+  .boongascreen__container {
+    top: 26%;
+    gap: 3vh;
+  }
+  .boongascreen__content {
+    bottom: 11%;
+  }
+  .boongascreen__content .input {
+    font-size: 7.79vh;
+  }
+  .boongascreen__group {
+    top: 12%;
+  }
+  .boongascreen__button {
+    font-size: 2.75vh;
+  }
+}

@@ -125,6 +125,11 @@
     }
     &-right {
       height: 100%;
+      .input {
+        textarea {
+          font-family: $font-symbols;
+        }
+      }
     }
     &-text {
       display: flex;
@@ -137,19 +142,31 @@
       width: 100%;
       font-weight: 700;
       &-left {
+        margin-top: 0.25em;
         min-width: 4.2em;
         text-align: right;
       }
+      &-right {
+        margin-top: 0.25em;
+      }
     }
     &-ico {
+      font-size: inherit;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 1.2em;
       min-width: unset !important;
+      transition: 0.15s;
       img {
         height: 100%;
         width: auto;
+      }
+      &:hover {
+        transform: scale(1.1);
+      }
+      &:active {
+        transform: scale(1);
       }
     }
     .input {
@@ -212,7 +229,7 @@
       align-items: center;
       justify-content: center;
       width: 8.1vh;
-      transition: 0.3s;
+      transition: 0.15s;
       &._left {
         right: unset;
         left: 0;
@@ -225,21 +242,26 @@
         transform: translateY(-2.5%);
       }
       &:active {
-        transform: translateY(-2.5);
+        transform: translateY(0%);
       }
     }
     &-row {
       width: 100%;
       display: flex;
       overflow: hidden;
+      gap: 2%;
     }
     &-item {
       flex-shrink: 0;
-      width: 100%;
+      width: 15%;
       height: 6vh;
-      background: red;
-      &:nth-child(2) {
-        background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
     }
   }
@@ -333,8 +355,9 @@
     position: relative;
     font-size: 3.7vh;
     transition: 0.15s;
+    font-family: $font-main;
     span {
-      font-size: 0.7em;
+      font-size: 1.4em;
       font-weight: 700;
       text-shadow: -0.03em 0.03em $white;
       position: absolute;
@@ -351,7 +374,8 @@
       }
     }
     &:hover {
-      transform: translateY(-4%);
+      transform: translateY(-2.2%);
+      color: #7d1700;
     }
     &:active {
       transform: translateY(-4%);
@@ -405,20 +429,19 @@
 }
 
 @mixin home-1440-1024 {
-  .hallscreen {
+  .boongascreen {
     &__container {
-      top: 31%;
-      gap: 8vh;
+      gap: 4vh;
     }
     &__content {
-      bottom: 11.5%;
+      bottom: 10%;
       .input {
         font-size: 7.9vh;
       }
     }
     &__group {
-      top: 14.5%;
-      gap: 4.4vh;
+      top: 10%;
+      right: 5%;
     }
     &__button {
       font-size: 2.8vh;
@@ -426,16 +449,15 @@
   }
 }
 @mixin home-1440-960 {
-  .hallscreen {
+  .boongascreen {
     &__container {
-      top: 29.5%;
-      gap: 9.4vh;
+      gap: 4vh;
     }
     &__content {
-      bottom: 7.5%;
+      bottom: 6.5%;
     }
     &__group {
-      top: 10.9%;
+      top: 8%;
     }
     &__button {
       font-size: 3.1vh;
@@ -443,20 +465,19 @@
   }
 }
 @mixin home-1280-1024 {
-  .hallscreen {
+  .boongascreen {
     &__container {
-      top: 32%;
-      gap: 7vh;
+      top: 28%;
+      gap: 3vh;
     }
     &__content {
-      bottom: 14.8%;
+      bottom: 13%;
       .input {
         font-size: 7.2vh;
       }
     }
     &__group {
-      top: 17.5%;
-      gap: 4vh;
+      top: 15%;
     }
     &__button {
       font-size: 2.6vh;
@@ -464,34 +485,33 @@
   }
 }
 @mixin home-1280-832 {
-  .hallscreen {
+  .boongascreen {
     &__container {
-      top: 29%;
-      gap: 9.8vh;
+      top: 24%;
+      gap: 5vh;
     }
     &__content {
-      bottom: 6.9%;
+      bottom: 6%;
     }
     &__group {
-      top: 9.7%;
+      top: 7%;
     }
   }
 }
 @mixin home-1024-768 {
-  .hallscreen {
+  .boongascreen {
     &__container {
-      top: 31%;
-      gap: 7.8vh;
+      top: 26%;
+      gap: 3vh;
     }
     &__content {
-      bottom: 12.3%;
+      bottom: 11%;
       .input {
         font-size: 7.79vh;
       }
     }
     &__group {
-      top: 15.3%;
-      gap: 4.3vh;
+      top: 12%;
     }
     &__button {
       font-size: 2.75vh;
