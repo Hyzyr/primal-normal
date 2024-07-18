@@ -8,6 +8,9 @@ import useHomeBg from './hooks/useHomeBg';
 import { PageScreens } from 'src/constants/AppContstants';
 import useScreen from './hooks/useScreen';
 import WallScreen from './screens/WallScreen';
+import ArrowButton, {
+  ARROW_DIRECTIONS,
+} from 'src/components/buttons/ArrowButton';
 
 const Home = ({ screen, prevScreen }) => {
   const ref = useRef(null);
@@ -31,20 +34,16 @@ const Home = ({ screen, prevScreen }) => {
 
   return (
     <div className="home__wrapper">
-      <button
-        type="button"
+      <ArrowButton
+        direction={ARROW_DIRECTIONS.LEFT}
         disabled={bgNav?.prevDisabled}
-        className="home-arrow home-arrow-left"
-        onClick={() => bgNav.prevPage()}>
-        <img src="/images/components/arrow-left.png" alt="" />
-      </button>
-      <button
-        type="button"
+        onClick={() => bgNav.prevPage()}
+      />
+      <ArrowButton
+        direction={ARROW_DIRECTIONS.RIGHT}
         disabled={bgNav?.nextDisabled}
-        className="home-arrow home-arrow-right"
-        onClick={() => bgNav.nextPage()}>
-        <img src="/images/components/arrow-right.png" alt="" />
-      </button>
+        onClick={() => bgNav.nextPage()}
+      />
       <div className="home" ref={ref}>
         <HomeBg />
         <ScreenWrapper
@@ -65,12 +64,12 @@ const Home = ({ screen, prevScreen }) => {
           className="_third">
           <HallScreen />
         </ScreenWrapper>
-        {/* <ScreenWrapper
-          id={PageScreens.BOONGA}
-          active={screen === PageScreens.BOONGA}
+        <ScreenWrapper
+          id={PageScreens.HALL}
+          active={screen === PageScreens.HALL}
           className="_third">
           <WallScreen />
-        </ScreenWrapper> */}
+        </ScreenWrapper>
       </div>
     </div>
   );
