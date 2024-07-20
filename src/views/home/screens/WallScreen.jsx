@@ -289,6 +289,9 @@ const WallScreen = () => {
             <PaginationButton
               text={i + 1}
               key={i}
+              className={`wallscreen__button ${
+                currentPage-1 === i ? "active" : ""
+              }`}
               onClick={() => {
                 setCurrentPage(i + 1);
               }}
