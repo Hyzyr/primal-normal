@@ -763,6 +763,9 @@ svg {
 }
 
 @media (max-width: 1440px) and (min-height: 1000px) and (max-height: 1024px) {
+  .nav {
+    font-size: 9vh;
+  }
   .boongascreen__container {
     gap: 4vh;
   }
@@ -795,6 +798,9 @@ svg {
   }
 }
 @media (max-width: 1280px) and (min-height: 1000px) and (max-height: 1024px) {
+  .nav {
+    font-size: 8.5vh;
+  }
   .boongascreen__container {
     top: 28%;
     gap: 3vh;
@@ -825,20 +831,17 @@ svg {
   }
 }
 @media (max-width: 1024px) and (min-height: 700px) and (max-height: 768px) {
+  .nav {
+    font-size: 9vh;
+  }
   .boongascreen__container {
-    top: 26%;
-    gap: 3vh;
+    top: 24%;
+    gap: 5vh;
   }
   .boongascreen__content {
-    bottom: 11%;
-  }
-  .boongascreen__content .input {
-    font-size: 7.79vh;
+    bottom: 6%;
   }
   .boongascreen__group {
-    top: 12%;
-  }
-  .boongascreen__button {
-    font-size: 2.75vh;
+    top: 7%;
   }
 }

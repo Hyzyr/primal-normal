@@ -1,16 +1,18 @@
 @media (max-width: 1440px) and (min-height: 1000px) and (max-height: 1024px) {
+  @include header-1440-1024;
   @include home-1440-1024;
 }
 @media (max-width: 1440px) and (min-height: 910px) and (max-height: 960px) {
   @include home-1440-960;
 }
 @media (max-width: 1280px) and (min-height: 1000px) and (max-height: 1024px) {
+  @include header-1280-1024;
   @include home-1280-1024;
 }
 @media (max-width: 1280px) and (min-height: 800px) and (max-height: 832px) {
   @include home-1280-832;
 }
 @media (max-width: 1024px) and (min-height: 700px) and (max-height: 768px) {
-  @include home-1024-768;
+  @include header-1024-768;
+  @include home-1280-832;
 }
-
