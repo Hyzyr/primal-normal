@@ -9,6 +9,7 @@ import Button, {
 import Textarea from 'src/components/textarea/Textarea';
 import { items, stickers } from './constants';
 import BoongaSlider from './BoongaSlider';
+import BoongaTranslator from './BoongaTranslator';
 
 const BoongaScreen = () => {
   useEffect(() => {
@@ -30,10 +31,7 @@ const BoongaScreen = () => {
         <img src="/images/placeholder.jpg" alt="placeholder" />
       </div>
       <div className="boongascreen__group">
-        <Button
-          text={'SAVE-NGA!'}
-          textSize={BUTTON_TEXT_SIZE.lg}
-        />
+        <Button text={'SAVE-NGA!'} textSize={BUTTON_TEXT_SIZE.lg} />
         <Button
           text={'UPLOAD YOUR PDF/IMAGE!'}
           textSize={BUTTON_TEXT_SIZE.sm}
@@ -44,23 +42,9 @@ const BoongaScreen = () => {
         <BoongaSlider title={'Stickers'} items={stickers} />
         <BoongaSlider title={'ITEMS'} items={[...items, ...items]} />
       </div>
-      <div className="boongascreen__content">
-        <div className="boongascreen__content-text">
-          <span className="boongascreen__content-text-left">HUMAN</span>
-          <button className="boongascreen__content-ico">
-            <img src="/images/components/arrows.png" alt="arrow" />
-          </button>
-          <span className="boongascreen__content-text-right">CAVEMAN</span>
-        </div>
-        <div className="boongascreen__content-row">
-          <div className="boongascreen__content-item">
-            <Textarea placeholder="hall checker" />
-          </div>
-          <div className="boongascreen__content-item _symbols">
-            <Textarea placeholder="hall checker" />
-          </div>
-        </div>
-      </div>
+      <BoongaTranslator />
+
+     
     </div>
   );
 };

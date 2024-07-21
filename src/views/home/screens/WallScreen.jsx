@@ -286,7 +286,6 @@ const WallScreen = () => {
     </div>
   );
 };
-
 const WallItem = ({ text, image, alt }) => {
   return (
     <div className="wallscreen__frame">
