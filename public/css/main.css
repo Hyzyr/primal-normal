@@ -231,6 +231,75 @@ svg {
   display: none;
 }
 
+.btn-arrow {
+  display: flex;
+  font-size: 8vw;
+  width: 1em;
+  transition: 0.2s ease-in;
+}
+.btn-arrow img {
+  width: 100%;
+  height: auto;
+  transition: 0.2s ease-in;
+}
+.btn-arrow:hover img {
+  transform: translateY(-5%);
+}
+.btn-arrow:active img {
+  transform: translateY(-2%);
+}
+.btn-arrow:disabled {
+  pointer-events: none;
+  cursor: default;
+  filter: grayscale(0.15);
+}
+
+.button {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.15s;
+  font-size: 2vh;
+  line-height: 1;
+  font-family: "Primal Nomad Alphabet", sans-serif;
+  text-align: center;
+}
+.button span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  font-size: 0.9em;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  text-shadow: -0.04em 0.04em #fff;
+}
+.button span._sm {
+  font-size: 0.8em;
+}
+.button span._lg {
+  font-size: 1em;
+}
+.button-bg {
+  display: flex;
+  z-index: -1;
+}
+.button-bg img {
+  height: 3em;
+  width: auto;
+}
+.button-stone2 .button-bg img {
+  transform: scale(1.04);
+}
+.button:hover {
+  transform: translateY(-2%);
+}
+.button:active {
+  transform: translateY(0%);
+}
+
 .ratioImage {
   position: relative;
   padding-bottom: 65%;
@@ -398,32 +467,15 @@ svg {
 .home-arrow {
   position: fixed;
   top: 50%;
-  display: flex;
-  width: 8vw;
+  font-size: 8vw;
   z-index: 1;
   transform: translateY(-50%);
-  transition: 0.2s ease-in;
 }
-.home-arrow img {
-  width: 100%;
-  height: auto;
-}
-.home-arrow-left {
+.home-arrow.btn-arrow-left {
   left: 5%;
 }
-.home-arrow-right {
+.home-arrow.btn-arrow-right {
   right: 5%;
-}
-.home-arrow:hover {
-  transform: translateY(-55%);
-}
-.home-arrow:active {
-  transform: translateY(-52%);
-}
-.home-arrow:disabled {
-  cursor: default;
-  filter: grayscale(0.15);
-  transform: translateY(-50%);
 }
 
 .screen {
@@ -552,58 +604,52 @@ svg {
   gap: 6vh;
 }
 .boongascreen__container-text {
-  font-size: 2.5vh;
+  font-size: 2.3vh;
   line-height: 1;
   text-shadow: -0.05em 0.05em #fff;
   font-weight: 700;
   padding-left: 3.5em;
+  text-transform: uppercase;
 }
 .boongascreen__container-group {
   display: flex;
   flex-direction: column;
-  gap: 0.7vh;
+  gap: 0.2vh;
 }
 .boongascreen__slider {
   width: 100%;
   display: flex;
   align-items: center;
   gap: 0.5vh;
+  font-size: 4vw;
 }
 .boongascreen__slider-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 8.1vh;
+  flex-shrink: 0;
+  font-size: inherit;
+  width: 1em;
   transition: 0.15s;
 }
-.boongascreen__slider-arrow._left {
-  right: unset;
-  left: 0;
-}
-.boongascreen__slider-arrow img {
-  width: 100%;
-  height: auto;
-}
-.boongascreen__slider-arrow:hover {
-  transform: translateY(-2.5%);
-}
-.boongascreen__slider-arrow:active {
-  transform: translateY(0%);
-}
-.boongascreen__slider-row {
-  width: 100%;
+.boongascreen__slider-track {
   display: flex;
   overflow: hidden;
-  gap: 2%;
+  flex-grow: 1;
+}
+.boongascreen__slider-row {
+  display: flex;
+  width: max-content;
+  flex-shrink: 0;
+  gap: 0.15em;
 }
 .boongascreen__slider-item {
   flex-shrink: 0;
-  width: 15%;
-  height: 6vh;
+  font-size: inherit;
+  height: 1em;
+  width: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  flex-shrink: 0;
 }
 .boongascreen__slider-item img {
   width: 100%;
@@ -617,53 +663,22 @@ svg {
   top: 8%;
   right: 5.9%;
   gap: 0.12vh;
+  width: 50%;
 }
-.boongascreen__button {
-  position: relative;
-  font-family: "Primal Nomad Alphabet", sans-serif;
-  z-index: 0;
-  font-size: 3.2vh;
-  line-height: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transition: 0.15s;
+.boongascreen__group .button {
+  font-size: 3.7vmin;
+  width: 50%;
 }
-.boongascreen__button span {
+.boongascreen__group .button-bg {
   width: 100%;
-  font-size: 0.8em;
-  line-height: 1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-shadow: -0.04em 0.04em #fff;
 }
-.boongascreen__button-left {
-  height: 2.75em;
+.boongascreen__group .button img {
+  height: auto;
+  width: 100%;
 }
-.boongascreen__button-left span {
-  font-size: 1em;
-}
-.boongascreen__button-left .boongascreen__button-bg img {
-  height: 2.8em;
-}
-.boongascreen__button-right span {
-  max-width: 8em;
-}
-.boongascreen__button-bg {
-  display: flex;
-}
-.boongascreen__button-bg img {
-  height: 3em;
-  width: auto;
-}
-.boongascreen__button:hover {
-  transform: translateY(-2%);
-}
-.boongascreen__button:active {
-  transform: translateY(0%);
+.boongascreen__bg img {
+  height: unset;
+  max-height: 80vh;
 }
 
 .wallscreen__container {

@@ -35,11 +35,13 @@ const Home = ({ screen, prevScreen }) => {
   return (
     <div className="home__wrapper">
       <ArrowButton
+        className="home-arrow"
         direction={ARROW_DIRECTIONS.LEFT}
         disabled={bgNav?.prevDisabled}
         onClick={() => bgNav.prevPage()}
       />
       <ArrowButton
+        className="home-arrow"
         direction={ARROW_DIRECTIONS.RIGHT}
         disabled={bgNav?.nextDisabled}
         onClick={() => bgNav.nextPage()}

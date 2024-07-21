@@ -61,32 +61,15 @@
   &-arrow {
     position: fixed;
     top: 50%;
-    display: flex;
-    width: 8vw;
+    font-size: 8vw;
     z-index: 1;
     transform: translateY(-50%);
-    transition: 0.2s ease-in;
 
-    img {
-      width: 100%;
-      height: auto;
-    }
-    &-left {
+    &.btn-arrow-left {
       left: 5%;
     }
-    &-right {
+    &.btn-arrow-right {
       right: 5%;
-    }
-    &:hover {
-      transform: translateY(-55%);
-    }
-    &:active {
-      transform: translateY(-52%);
-    }
-    &:disabled {
-      cursor: default;
-      filter: grayscale(0.15);
-      transform: translateY(-50%);
     }
   }
 }
@@ -122,6 +105,7 @@
     }
   }
 }
+
 .boongascreen {
   &__content {
     position: absolute;
@@ -223,17 +207,19 @@
     display: flex;
     flex-direction: column;
     gap: 6vh;
+
     &-text {
-      font-size: 2.5vh;
+      font-size: 2.3vh;
       line-height: 1;
       text-shadow: -0.05em 0.05em $white;
       font-weight: 700;
       padding-left: 3.5em;
+      text-transform: uppercase;
     }
     &-group {
       display: flex;
       flex-direction: column;
-      gap: 0.7vh;
+      gap: 0.2vh;
     }
   }
   &__slider {
@@ -241,41 +227,36 @@
     display: flex;
     align-items: center;
     gap: 0.5vh;
+    font-size: 4vw;
+
     &-arrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 8.1vh;
+      flex-shrink: 0;
+      font-size: inherit;
+      width: 1em;
       transition: 0.15s;
-      &._left {
-        right: unset;
-        left: 0;
-      }
-      img {
-        width: 100%;
-        height: auto;
-      }
-      &:hover {
-        transform: translateY(-2.5%);
-      }
-      &:active {
-        transform: translateY(0%);
-      }
     }
-    &-row {
-      width: 100%;
+    &-track {
       display: flex;
       overflow: hidden;
-      gap: 2%;
+      flex-grow: 1;
+    }
+    &-row {
+      display: flex;
+      width: max-content;
+      flex-shrink: 0;
+      gap: 0.15em;
     }
     &-item {
       flex-shrink: 0;
-      width: 15%;
-      height: 6vh;
+      font-size: inherit;
+      height: 1em;
+      width: 5%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      flex-shrink: 0;
+
       img {
         width: 100%;
         height: 100%;
@@ -290,60 +271,25 @@
     top: 8%;
     right: 5.9%;
     gap: 0.12vh;
-  }
-  &__button {
-    position: relative;
-    font-family: $font-main;
-    z-index: 0;
-    font-size: 3.2vh;
-    line-height: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: 0.15s;
-    span {
-      width: 100%;
-      font-size: 0.8em;
-      line-height: 1;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-shadow: -0.04em 0.04em $white;
-    }
-    &-left {
-      height: 2.75em;
-      span {
-        font-size: 1em;
+    width: 50%;
+
+    .button {
+      font-size: 3.7vmin;
+      width: 50%;
+      &-bg {
+        width: 100%;
       }
-      .boongascreen {
-        &__button {
-          &-bg {
-            img {
-              height: 2.8em;
-            }
-          }
-        }
-      }
-    }
-    &-right {
-      span {
-        max-width: 8em;
-      }
-    }
-    &-bg {
-      display: flex;
       img {
-        height: 3em;
-        width: auto;
+        height: auto;
+        width: 100%;
       }
     }
-    &:hover {
-      transform: translateY(-2%);
-    }
-    &:active {
-      transform: translateY(0%);
+  }
+
+  &__bg {
+    img {
+      height: unset;
+      max-height: 80vh;
     }
   }
 }
@@ -400,7 +346,7 @@
     }
     &:after {
       position: absolute;
-      content: "";
+      content: '';
       width: 100%;
       height: 100%;
       background: radial-gradient(#ffc2b5, transparent 70%);
@@ -412,7 +358,7 @@
     }
     &.active {
       &:after {
-        opacity: .5;
+        opacity: 0.5;
         mix-blend-mode: hard-light;
       }
     }

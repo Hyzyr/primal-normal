@@ -1,24 +1,30 @@
-import React from "react";
+import React from 'react';
 
 export const BUTTON_VARIANTS = {
-  RIGHT: "right",
-  LEFT: "left",
+  STONE1: 'stone1',
+  STONE2: 'stone2',
+};
+export const BUTTON_TEXT_SIZE = {
+  sm: '_sm',
+  md: '_md',
+  lg: '_lg',
 };
 
-const Button = ({ variant = BUTTON_VARIANTS.RIGHT, text, ...restProps }) => {
+const Button = ({
+  variant = BUTTON_VARIANTS.STONE1,
+  textSize = BUTTON_TEXT_SIZE.md,
+  text,
+  ...restProps
+}) => {
   let image =
-    variant === "right"
-      ? "/images/components/button-right.png"
-      : "/images/components/button-left.png";
+    variant === BUTTON_VARIANTS.STONE1
+      ? '/images/components/button-right.png'
+      : '/images/components/button-left.png';
 
   return (
-    <button
-      type="button"
-      className={`boongascreen__button boongascreen__button-${variant}`}
-      {...restProps}
-    >
-      <span>{text}</span>
-      <div className="boongascreen__button-bg">
+    <button type="button" className={`button button-${variant}`} {...restProps}>
+      <span className={textSize}>{text}</span>
+      <div className="button-bg">
         <img src={image} alt={`arrow-${variant}`} />
       </div>
     </button>
