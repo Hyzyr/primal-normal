@@ -28,6 +28,7 @@
     height: 100%;
   }
   &__section {
+    cursor: default;
     position: absolute;
     display: none;
     left: 0;
@@ -42,7 +43,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    cursor: none;
 
     &-screen {
       position: absolute;
@@ -56,6 +57,32 @@
         height: 100%;
         object-fit: cover;
       }
+    }
+    &-stone {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-shadow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: radial-gradient(
+        circle 17vmax at var(--mouseX) var(--mouseY),
+        transparent 40%,
+        rgba(#000, 0.85)
+      );
     }
   }
   &-arrow {

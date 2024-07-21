@@ -3,5 +3,10 @@ $secondary: #2f5bd1;
 $black: #101010;
 $white: #fff;
 
-$font-symbols: "Primal Nomad Symbol", sans-serif;
-$font-main: "Primal Nomad Alphabet", sans-serif;
+$font-symbols: 'Primal Nomad Symbol', sans-serif;
+$font-main: 'Primal Nomad Alphabet', sans-serif;
+
+:root {
+  --mouseX: 50vw;
+  --mouseY: 50vh;
+}
