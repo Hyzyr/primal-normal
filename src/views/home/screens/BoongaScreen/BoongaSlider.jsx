@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 import ArrowButton, {
   ARROW_DIRECTIONS,
-} from 'src/components/buttons/ArrowButton';
-import usePager from 'src/hooks/usePager';
-
+} from "src/components/buttons/ArrowButton";
+import usePager from "src/hooks/usePager";
 
 const BoongaSlider = ({ title, items }) => {
   const slides = usePager({ items, itemsPerRow: 5 });
@@ -21,7 +20,15 @@ const BoongaSlider = ({ title, items }) => {
             <div className="boongascreen__slider-row" key={`row-${index}`}>
               {arr.map((item, i) => (
                 <div className="boongascreen__slider-item" key={`item-${i}`}>
-                  <img src={item.img} alt={item.alt} />
+                  <div className="boongascreen__slider-item-image">
+                    <img src={item.img} alt={item.alt} />
+                  </div>
+                  <div className="boongascreen__slider-item-bg">
+                    <img
+                      src="/images/components/stikers-box.png"
+                      alt="stikers-bg"
+                    />
+                  </div>
                 </div>
               ))}
             </div>

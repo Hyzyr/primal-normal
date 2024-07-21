@@ -26,6 +26,9 @@ const BoongaScreen = () => {
       <div className="boongascreen__bg screen__bg">
         <img src="/images/screens/boonga-screen.png" alt="app-screen-frame" />
       </div>
+      <div className="boongascreen__image">
+        <img src="/images/placeholder.jpg" alt="placeholder" />
+      </div>
       <div className="boongascreen__group">
         <Button
           text={'SAVE-NGA!'}
@@ -50,10 +53,10 @@ const BoongaScreen = () => {
           <span className="boongascreen__content-text-right">CAVEMAN</span>
         </div>
         <div className="boongascreen__content-row">
-          <div className="boongascreen__content-left">
+          <div className="boongascreen__content-item">
             <Textarea placeholder="hall checker" />
           </div>
-          <div className="boongascreen__content-right">
+          <div className="boongascreen__content-item _symbols">
             <Textarea placeholder="hall checker" />
           </div>
         </div>

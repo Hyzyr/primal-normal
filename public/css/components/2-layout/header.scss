@@ -84,18 +84,9 @@
     }
   }
 }
-@mixin header-1440-1024 {
+
+@mixin header-1540 {
   .nav {
-    font-size: 9vh;
-  }
-}
-@mixin header-1280-1024 {
-  .nav {
-    font-size: 8.5vh;
-  }
-}
-@mixin header-1024-768 {
-  .nav {
-    font-size: 9vh;
+    font-size: 6.5vw;
   }
 }
