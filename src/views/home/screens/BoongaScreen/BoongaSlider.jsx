@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import ArrowButton, {
   ARROW_DIRECTIONS,
 } from "src/components/buttons/ArrowButton";
 import usePager from "src/hooks/usePager";
+import useSlider from "./hooks/useSlider";
 
 const BoongaSlider = ({ title, items }) => {
   const slides = usePager({ items, itemsPerRow: 5 });
+  const ref = useRef(null);
+  const sliderNav = useSlider({ wrapperRef: ref });
 
   return (
     <div className="boongascreen__container-group">
@@ -14,8 +17,10 @@ const BoongaSlider = ({ title, items }) => {
         <ArrowButton
           direction={ARROW_DIRECTIONS.LEFT}
           className="boongascreen__slider-arrow"
+          disabled={sliderNav?.prevDisabled}
+          onClick={() => sliderNav.prevPage()}
         />
-        <div className="boongascreen__slider-track">
+        <div className="boongascreen__slider-track" ref={ref}>
           {slides.map((arr, index) => (
             <div className="boongascreen__slider-row" key={`row-${index}`}>
               {arr.map((item, i) => (
@@ -37,6 +42,8 @@ const BoongaSlider = ({ title, items }) => {
         <ArrowButton
           direction={ARROW_DIRECTIONS.RIGHT}
           className="boongascreen__slider-arrow"
+          disabled={sliderNav?.nextDisabled}
+          onClick={() => sliderNav.nextPage()}
         />
       </div>
     </div>

@@ -1,9 +1,9 @@
-import React from 'react';
-import { chars } from '../constants';
+import React from "react";
+import { chars } from "../constants";
 
 const useBoongaTranslate = ({ value, toCaveman = false }) => {
   const translateText = (value) => {
-    let str = value;
+    let str = value.toLowerCase();
     chars.forEach((charsData) => {
       str = str.replaceAll(charsData.keyCode, charsData.keyValue);
     });

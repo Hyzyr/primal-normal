@@ -20,7 +20,6 @@ const ShadowLight = () => {
   useEffect(() => {
     const listener = (e) => {
       window.event = e;
-      console.log(e.clientX, e.clientY);
       document.documentElement.style.setProperty('--mouseX', `${e.clientX}px`);
       document.documentElement.style.setProperty('--mouseY', `${e.clientY}px`);
     };

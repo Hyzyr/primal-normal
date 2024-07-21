@@ -258,6 +258,27 @@ svg {
   cursor: default;
   filter: grayscale(0.15);
 }
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-icon img {
+  width: 100%;
+  height: auto;
+  transition: 0.2s ease-in;
+}
+.btn-icon:hover img {
+  transform: translateY(-5%);
+}
+.btn-icon:active img {
+  transform: translateY(-2%);
+}
+.btn-icon:disabled {
+  pointer-events: none;
+  cursor: default;
+  filter: grayscale(0.15);
+}
 
 .button {
   position: relative;
@@ -554,7 +575,7 @@ svg {
 .boongascreen__content-item._symbols textarea {
   font-family: "Primal Nomad Symbol", sans-serif;
 }
-.boongascreen__content-text {
+.boongascreen__content-box {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -565,13 +586,20 @@ svg {
   width: 100%;
   font-weight: 700;
 }
-.boongascreen__content-text-left {
-  margin-top: 0.25em;
-  min-width: 4.2em;
-  text-align: right;
+.boongascreen__content-box.active .boongascreen__content-text {
+  transform: translateX(-155%);
 }
-.boongascreen__content-text-right {
-  margin-top: 0.25em;
+.boongascreen__content-box.active .boongascreen__content-text._left {
+  transform: translateX(155%);
+  text-align: left;
+}
+.boongascreen__content-text {
+  margin-top: 0.2em;
+  min-width: 4.25em;
+  transition: 0.4s ease;
+}
+.boongascreen__content-text._left {
+  text-align: right;
 }
 .boongascreen__content-ico {
   font-size: inherit;
@@ -591,6 +619,18 @@ svg {
 }
 .boongascreen__content-ico:active {
   transform: scale(1);
+}
+.boongascreen__content-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  position: absolute;
+  bottom: 10%;
+  right: 2%;
+  width: 14%;
+}
+.boongascreen__content-tools .btn-icon {
+  width: 50%;
 }
 .boongascreen__content .input {
   font-size: 8.79vh;
@@ -751,6 +791,9 @@ svg {
   height: 100%;
 }
 
+.wallscreen {
+  min-height: 63vh;
+}
 .wallscreen__container {
   display: flex;
   flex-direction: column;
@@ -849,11 +892,12 @@ svg {
   text-shadow: -0.03em 0.03em #fff;
   font-weight: 700;
   position: absolute;
-  bottom: 12%;
+  bottom: 11%;
   width: 80%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+  text-transform: uppercase;
 }
 .wallscreen__frame-bg {
   display: flex;
@@ -862,6 +906,60 @@ svg {
 .wallscreen__frame-bg img {
   width: 100%;
   object-fit: contain;
+}
+.wallscreen__popup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0;
+  transform: scale(0.7);
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+.wallscreen__popup.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+.wallscreen__popup-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% + 2vw);
+  height: calc(100% + 2vw);
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.wallscreen__popup-bg img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.wallscreen__popup-image {
+  display: flex;
+  width: 42%;
+  height: 66%;
+  position: absolute;
+  top: 12%;
+  left: 4%;
+  z-index: -1;
+}
+.wallscreen__popup-image img {
+  width: 100%;
+  height: 100%;
+}
+.wallscreen__popup-close {
+  position: absolute;
+  right: 2.5%;
+  top: -1%;
+  width: 11%;
+  z-index: 1;
 }
 
 @media (max-width: 1540px) {

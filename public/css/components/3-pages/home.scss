@@ -155,7 +155,7 @@
         }
       }
     }
-    &-text {
+    &-box {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -165,13 +165,26 @@
       text-shadow: -0.05em 0.05em $white;
       width: 100%;
       font-weight: 700;
-      &-left {
-        margin-top: 0.25em;
-        min-width: 4.2em;
-        text-align: right;
+      &.active {
+        .boongascreen {
+          &__content {
+            &-text {
+              transform: translateX(-155%);
+              &._left {
+                transform: translateX(155%);
+                text-align: left;
+              }
+            }
+          }
+        }
       }
-      &-right {
-        margin-top: 0.25em;
+    }
+    &-text {
+      margin-top: 0.2em;
+      min-width: 4.25em;
+      transition: 0.4s ease;
+      &._left {
+        text-align: right;
       }
     }
     &-ico {
@@ -191,6 +204,20 @@
       }
       &:active {
         transform: scale(1);
+      }
+    }
+    &-tools {
+      display: flex;
+      align-items: center;
+      gap: 0.2em;
+      position: absolute;
+      bottom: 10%;
+      right: 2%;
+      width: 14%;
+      .btn {
+        &-icon {
+          width: 50%;
+        }
       }
     }
     .input {
@@ -360,6 +387,7 @@
   }
 }
 .wallscreen {
+  min-height: 63vh;
   &__container {
     display: flex;
     flex-direction: column;
@@ -412,7 +440,7 @@
     }
     &:after {
       position: absolute;
-      content: '';
+      content: "";
       width: 100%;
       height: 100%;
       background: radial-gradient(#ffc2b5, transparent 70%);
@@ -459,11 +487,12 @@
       text-shadow: -0.03em 0.03em $white;
       font-weight: 700;
       position: absolute;
-      bottom: 12%;
+      bottom: 11%;
       width: 80%;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
+      text-transform: uppercase;
     }
     &-bg {
       display: flex;
@@ -474,8 +503,61 @@
       }
     }
   }
+  &__popup {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0;
+    transform: scale(0.7);
+    pointer-events: none;
+    transition: 0.3s ease;
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: all;
+    }
+    &-bg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(100% + 2vw);
+      height: calc(100% + 2vw);
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    &-image {
+      display: flex;
+      width: 42%;
+      height: 66%;
+      position: absolute;
+      top: 12%;
+      left: 4%;
+      z-index: -1;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-close {
+      position: absolute;
+      right: 2.5%;
+      top: -1%;
+      width: 11%;
+      z-index: 1;
+    }
+  }
 }
-
 @mixin home-1540 {
   .boongascreen {
     &__container {
