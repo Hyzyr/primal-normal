@@ -121,6 +121,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0.6;
+
     img {
       width: 100%;
       height: auto;
@@ -128,14 +130,11 @@
     }
 
     &:hover {
-      img {
-        transform: translateY(-5%);
-      }
+      opacity: 1;
     }
     &:active {
-      img {
-        transform: translateY(-2%);
-      }
+      opacity: 1;
+      transform: scale(0.97);
     }
     &:disabled {
       pointer-events: none;

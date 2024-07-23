@@ -11,7 +11,7 @@ const WallPopUp = ({ popUp, setPopUp, image }) => {
         <img src={image} alt="placeholder" />
       </div>
       <ButtonIcon
-        icon={"/images/components/add.png"}
+        icon={"/images/components/cross.png"}
         alt={"close"}
         addClass="wallscreen__popup-close"
         onClick={() => {
