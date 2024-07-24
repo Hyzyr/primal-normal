@@ -455,6 +455,13 @@ svg {
   display: flex;
   width: 100%;
   height: 100%;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+   supported by Chrome, Edge, Opera and Firefox */
 }
 .home__wrapper {
   position: fixed;
@@ -480,6 +487,7 @@ svg {
   width: 100%;
   height: 100%;
   cursor: none;
+  cursor: url(/images/pn-cursor.png), auto;
 }
 .home__bg-screen {
   position: absolute;
@@ -534,6 +542,13 @@ svg {
   left: 50%;
   width: auto;
   transform: translate(-50%, -50%);
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+   supported by Chrome, Edge, Opera and Firefox */
 }
 .screen__bg {
   display: flex;
