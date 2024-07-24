@@ -20,11 +20,6 @@ const Home = ({ screen, prevScreen }) => {
 
   useEffect(() => {
     if (!ref.current) return;
-    console.log({
-      prevScreen,
-      screen,
-    });
-
     const prevScreenDom = ref.current.querySelector(`#${prevScreen}`);
     const screenNavDom = ref.current.querySelector(`#${screen}`);
 

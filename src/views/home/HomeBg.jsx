@@ -11,7 +11,7 @@ const HomeBg = () => {
       <div className="home__bg-stone">
         <img src="/images/front-stone.png" alt="fixed stone" />
       </div>
-      <ShadowLight />
+      {/* <ShadowLight /> */}
     </div>
   );
 };

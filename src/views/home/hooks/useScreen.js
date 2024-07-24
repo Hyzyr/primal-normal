@@ -10,6 +10,7 @@ const useScreen = () => {
   });
 
   const hideScreen = (screen, timing = '>') => {
+    if (!screen || !timeline) return;
     const onComplete = () => {
       gsap.set(screen, { display: 'none' });
     };
@@ -27,6 +28,10 @@ const useScreen = () => {
     );
   };
   const showScreen = (screen, timing = '>') => {
+    if (!screen || !timeline) {
+      if (screen) gsap.set(screen, { display: 'flex' });
+      return;
+    }
     timeline.fromTo(
       screen,
       { display: 'flex', yPercent: -100, opacity: 0 },

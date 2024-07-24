@@ -1,0 +1,306 @@
+.boongascreen {
+  &__content {
+    position: absolute;
+    bottom: 4.5%;
+    left: 50%;
+    transform: translateX(-49%);
+    display: flex;
+    flex-direction: column;
+    width: 93%;
+    &-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    &-item {
+      width: 50%;
+      &._symbols {
+        textarea {
+          font-family: $font-symbols;
+        }
+      }
+    }
+    &-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1vh;
+      font-size: 2.6vh;
+      line-height: 1;
+      text-shadow: -0.05em 0.05em $white;
+      width: 100%;
+      font-weight: 700;
+      &.active {
+        .boongascreen {
+          &__content {
+            &-text {
+              transform: translateX(-155%);
+              &._left {
+                transform: translateX(155%);
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-text {
+      margin-top: 0.2em;
+      min-width: 4.25em;
+      transition: 0.4s ease;
+      &._left {
+        text-align: right;
+      }
+    }
+    &-ico {
+      font-size: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 1.2em;
+      min-width: unset !important;
+      transition: 0.15s;
+      img {
+        height: 100%;
+        width: auto;
+      }
+      &:hover {
+        transform: scale(1.1);
+      }
+      &:active {
+        transform: scale(1);
+      }
+    }
+    &-tools {
+      display: flex;
+      align-items: center;
+      font-size: 2.2vw;
+      font-size: 2.2vmin;
+      gap: 0.2em;
+      position: absolute;
+      bottom: 10%;
+      right: 2%;
+      height: 2em;
+      width: auto;
+
+      .btn-icon {
+        height: 100%;
+        width: auto;
+
+        img {
+          width: auto;
+          height: 100%;
+        }
+      }
+    }
+    .input {
+      font-size: 8.79vh;
+      width: 100%;
+      height: 100%;
+      textarea {
+        top: 10%;
+        width: 92%;
+        height: 86%;
+        font-size: 0.4em;
+        font-weight: 900;
+        text-shadow: -1px -1px rgba($white, 0.2);
+        color: #33251c;
+        &::placeholder {
+          color: #33251c;
+        }
+        &:focus {
+          &::placeholder {
+            opacity: 0.8;
+          }
+        }
+      }
+      &__bg {
+        width: 100%;
+        img {
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+  &__container {
+    position: absolute;
+    top: 24%;
+    right: 3.8%;
+    width: 51.7%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+    &-text {
+      font-size: 2.3vh;
+      line-height: 1;
+      text-shadow: -0.05em 0.05em $white;
+      font-weight: 700;
+      padding-left: 3.5em;
+      text-transform: uppercase;
+    }
+    &-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5vw;
+    }
+  }
+  &__slider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5vh;
+    font-size: 4vw;
+
+    &-arrow {
+      flex-shrink: 0;
+      font-size: inherit;
+      width: 1em;
+      transition: 0.15s;
+    }
+    &-track {
+      display: flex;
+      overflow: hidden;
+      flex-grow: 1;
+      height: 1em;
+      position: relative;
+    }
+    &-row {
+      display: flex;
+      // width: max-content;
+      width: 100%;
+      flex-shrink: 0;
+      gap: 0.14em;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(20% - 0.11em);
+      height: 100%;
+      flex-shrink: 0;
+      font-size: inherit;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 0;
+      cursor: pointer;
+      &-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 85%;
+        height: 85%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      &-bg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  &__group {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 6%;
+    right: 4.8%;
+    gap: 0.6vw;
+    width: 50%;
+    .button {
+      font-size: 3.7vmin;
+      width: 50%;
+      &-bg {
+        width: 100%;
+      }
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+  &__bg {
+    pointer-events: none;
+    img {
+      height: unset;
+      max-height: 80vh;
+    }
+  }
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 7%;
+    left: 8%;
+    width: 34%;
+    height: 54%;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .boongamaker {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+}
+.boongamaker {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .sample-canvas {
+    width: 100%;
+    height: 100%;
+  }
+  .canvas-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+@mixin boonga-1540 {
+  .boongascreen {
+    &__container {
+      gap: 3vw;
+    }
+    &__group {
+      .button {
+        font-size: 2vw;
+      }
+    }
+  }
+}
+@mixin boonga-1280 {
+  .boongascreen {
+    &__container {
+      gap: 2vw;
+    }
+  }
+}

@@ -571,6 +571,177 @@ svg {
   width: 100%;
 }
 
+.wallscreen {
+  min-height: 63vh;
+}
+.wallscreen__container {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  width: 100vh;
+  max-width: 65vw;
+}
+.wallscreen__container-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5vh 2vh;
+  width: 100%;
+}
+.wallscreen__container-pagination {
+  display: flex;
+  gap: 0.5vh;
+  position: fixed;
+  top: calc(100% + 4.5vh);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wallscreen__button {
+  position: relative;
+  font-size: 3.7vh;
+  transition: 0.15s;
+  font-family: "Primal Nomad Alphabet", sans-serif;
+}
+.wallscreen__button span {
+  font-size: 1.4em;
+  font-weight: 700;
+  text-shadow: -0.03em 0.03em #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wallscreen__button-bg {
+  display: flex;
+  height: 2em;
+}
+.wallscreen__button-bg img {
+  width: auto;
+  height: 100%;
+}
+.wallscreen__button:hover {
+  transform: translateY(-2.2%);
+  color: #7d1700;
+}
+.wallscreen__button:active {
+  transform: translateY(-4%);
+}
+.wallscreen__button:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(#ffc2b5, transparent 70%);
+  transition: 0.24s ease-in;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wallscreen__button.active:after {
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+}
+.wallscreen__frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(25% - 1.5vh);
+  position: relative;
+}
+.wallscreen__frame-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 77%;
+  height: 65%;
+  position: absolute;
+  left: 49%;
+  top: 5%;
+  transform: translateX(-50%);
+  z-index: -1;
+  border-radius: 1vh 1vh 0 0;
+  overflow: hidden;
+}
+.wallscreen__frame-image img {
+  width: 100%;
+  height: 100%;
+}
+.wallscreen__frame-text {
+  font-size: 2.2vh;
+  line-height: 1;
+  text-shadow: -0.03em 0.03em #fff;
+  font-weight: 700;
+  position: absolute;
+  bottom: 11%;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  text-transform: uppercase;
+}
+.wallscreen__frame-bg {
+  display: flex;
+  width: 100%;
+}
+.wallscreen__frame-bg img {
+  width: 100%;
+  object-fit: contain;
+}
+.wallscreen__popup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0;
+  transform: scale(0.7);
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+.wallscreen__popup.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+.wallscreen__popup-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% + 2vw);
+  height: calc(100% + 2vw);
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.wallscreen__popup-bg img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.wallscreen__popup-image {
+  display: flex;
+  width: 42%;
+  height: 66%;
+  position: absolute;
+  top: 12%;
+  left: 4%;
+  z-index: -1;
+}
+.wallscreen__popup-image img {
+  width: 100%;
+  height: 100%;
+}
+.wallscreen__popup-close {
+  position: absolute;
+  right: 2.5%;
+  top: -1%;
+  width: 6%;
+  z-index: 1;
+}
+
 .boongascreen__content {
   position: absolute;
   bottom: 4.5%;
@@ -796,6 +967,9 @@ svg {
   height: auto;
   width: 100%;
 }
+.boongascreen__bg {
+  pointer-events: none;
+}
 .boongascreen__bg img {
   height: unset;
   max-height: 80vh;
@@ -815,176 +989,28 @@ svg {
   width: 100%;
   height: 100%;
 }
-
-.wallscreen {
-  min-height: 63vh;
-}
-.wallscreen__container {
-  display: flex;
-  flex-direction: column;
-  gap: 5vh;
-  width: 100vh;
-  max-width: 65vw;
-}
-.wallscreen__container-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5vh 2vh;
-  width: 100%;
-}
-.wallscreen__container-pagination {
-  display: flex;
-  gap: 0.5vh;
-  position: fixed;
-  top: calc(100% + 4.5vh);
-  left: 50%;
-  transform: translateX(-50%);
-}
-.wallscreen__button {
-  position: relative;
-  font-size: 3.7vh;
-  transition: 0.15s;
-  font-family: "Primal Nomad Alphabet", sans-serif;
-}
-.wallscreen__button span {
-  font-size: 1.4em;
-  font-weight: 700;
-  text-shadow: -0.03em 0.03em #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.wallscreen__button-bg {
-  display: flex;
-  height: 2em;
-}
-.wallscreen__button-bg img {
-  width: auto;
-  height: 100%;
-}
-.wallscreen__button:hover {
-  transform: translateY(-2.2%);
-  color: #7d1700;
-}
-.wallscreen__button:active {
-  transform: translateY(-4%);
-}
-.wallscreen__button:after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(#ffc2b5, transparent 70%);
-  transition: 0.24s ease-in;
-  opacity: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.wallscreen__button.active:after {
-  opacity: 0.5;
-  mix-blend-mode: hard-light;
-}
-.wallscreen__frame {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(25% - 1.5vh);
-  position: relative;
-}
-.wallscreen__frame-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 77%;
-  height: 65%;
-  position: absolute;
-  left: 49%;
-  top: 5%;
-  transform: translateX(-50%);
-  z-index: -1;
-  border-radius: 1vh 1vh 0 0;
-  overflow: hidden;
-}
-.wallscreen__frame-image img {
-  width: 100%;
-  height: 100%;
-}
-.wallscreen__frame-text {
-  font-size: 2.2vh;
-  line-height: 1;
-  text-shadow: -0.03em 0.03em #fff;
-  font-weight: 700;
-  position: absolute;
-  bottom: 11%;
-  width: 80%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  text-transform: uppercase;
-}
-.wallscreen__frame-bg {
-  display: flex;
-  width: 100%;
-}
-.wallscreen__frame-bg img {
-  width: 100%;
-  object-fit: contain;
-}
-.wallscreen__popup {
+.boongascreen__image .boongamaker {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  opacity: 0;
-  transform: scale(0.7);
-  pointer-events: none;
-  transition: 0.3s ease;
-}
-.wallscreen__popup.active {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: all;
-}
-.wallscreen__popup-bg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(100% + 2vw);
-  height: calc(100% + 2vw);
-  position: absolute;
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-}
-.wallscreen__popup-bg img {
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-}
-.wallscreen__popup-image {
-  display: flex;
-  width: 42%;
-  height: 66%;
-  position: absolute;
-  top: 12%;
-  left: 4%;
-  z-index: -1;
-}
-.wallscreen__popup-image img {
-  width: 100%;
-  height: 100%;
-}
-.wallscreen__popup-close {
-  position: absolute;
-  right: 2.5%;
-  top: -1%;
-  width: 6%;
   z-index: 1;
+}
+
+.boongamaker {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.boongamaker .sample-canvas {
+  width: 100%;
+  height: 100%;
+}
+.boongamaker .canvas-container {
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 1540px) {

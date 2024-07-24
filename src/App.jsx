@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
 import Home from 'src/views/home/Home';
 import Nav from 'src/components/nav/Nav';
+import { PageScreens } from './constants/AppContstants';
 
 const App = () => {
   const [prevScreen, setPrevScreen] = useState(null);
-  const [screen, setScreen] = useState(null);
+  const [screen, setScreen] = useState(PageScreens.BOONGA);
+
   const setNewScreen = (id) => {
     if (id === screen) return;
     setPrevScreen(screen);
