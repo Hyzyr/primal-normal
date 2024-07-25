@@ -59,7 +59,7 @@ const WallItem = ({ text, image, alt, ...props }) => {
       </div>
       <div className="wallscreen__frame-text">{text}</div>
       <div className="wallscreen__frame-bg">
-        <img src="/images/wall/frame-4.png" alt="app-screen-frame" />
+        <img src="/images/wall/frame-4.png" loading="lazy" alt="app-screen-frame" />
       </div>
     </div>
   );
