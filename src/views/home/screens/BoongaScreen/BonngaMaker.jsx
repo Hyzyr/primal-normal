@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FabricJSCanvas } from 'fabricjs-react';
 import useEditor from './hooks/useEditor';
 
-const BonngaMaker = () => {
-  const wrapperRef = React.useRef();
-
-  const { editor, onReady } = useEditor({ wrapperRef });
+const BonngaMaker = React.forwardRef(({ editor }, ref) => {
+  const { onReady, appendImage } = editor;
 
   return (
-    <div className="boongamaker" ref={wrapperRef}>
-      <FabricJSCanvas className="sample-canvas" onReady={onReady} />
+    <div className="boongamaker" ref={ref}>
+      <FabricJSCanvas className="boongamaker-canvas" onReady={onReady} />
     </div>
   );
-};
+});
 
 export default BonngaMaker;

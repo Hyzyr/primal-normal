@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import * as fabric from 'fabric'; // v6
-import { FabricJSCanvas, useFabricJSEditor } from 'fabricjs-react';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { fabric } from "fabric";
+import { FabricJSCanvas, useFabricJSEditor } from "fabricjs-react";
+import "./styles.css";
 
 export default function App() {
   const { editor, onReady } = useFabricJSEditor();
 
   const history = [];
-  const [color, setColor] = useState('#35363a');
+  const [color, setColor] = useState("#35363a");
   const [cropImage, setCropImage] = useState(true);
 
   useEffect(() => {
@@ -20,8 +20,8 @@ export default function App() {
       return;
     }
 
-    if (!editor.canvas.__eventListeners['mouse:wheel']) {
-      editor.canvas.on('mouse:wheel', function (opt) {
+    if (!editor.canvas.__eventListeners["mouse:wheel"]) {
+      editor.canvas.on("mouse:wheel", function (opt) {
         var delta = opt.e.deltaY;
         var zoom = editor.canvas.getZoom();
         zoom *= 0.999 ** delta;
@@ -33,8 +33,8 @@ export default function App() {
       });
     }
 
-    if (!editor.canvas.__eventListeners['mouse:down']) {
-      editor.canvas.on('mouse:down', function (opt) {
+    if (!editor.canvas.__eventListeners["mouse:down"]) {
+      editor.canvas.on("mouse:down", function (opt) {
         var evt = opt.e;
         if (evt.ctrlKey === true) {
           this.isDragging = true;
@@ -45,8 +45,8 @@ export default function App() {
       });
     }
 
-    if (!editor.canvas.__eventListeners['mouse:move']) {
-      editor.canvas.on('mouse:move', function (opt) {
+    if (!editor.canvas.__eventListeners["mouse:move"]) {
+      editor.canvas.on("mouse:move", function (opt) {
         if (this.isDragging) {
           var e = opt.e;
           var vpt = this.viewportTransform;
@@ -59,8 +59,8 @@ export default function App() {
       });
     }
 
-    if (!editor.canvas.__eventListeners['mouse:up']) {
-      editor.canvas.on('mouse:up', function (opt) {
+    if (!editor.canvas.__eventListeners["mouse:up"]) {
+      editor.canvas.on("mouse:up", function (opt) {
         // on mouse up we want to recalculate new interaction
         // for all objects, so we call setViewportTransform
         this.setViewportTransform(this.viewportTransform);
@@ -78,7 +78,7 @@ export default function App() {
     }
 
     fabric.Image.fromURL(
-      'https://thegraphicsfairy.com/wp-content/uploads/2019/02/Anatomical-Heart-Illustration-Black-GraphicsFairy.jpg',
+      "https://thegraphicsfairy.com/wp-content/uploads/2019/02/Anatomical-Heart-Illustration-Black-GraphicsFairy.jpg",
       (image) => {
         editor.canvas.setBackgroundImage(
           image,
@@ -149,19 +149,99 @@ export default function App() {
     editor.setStrokeColor(color);
   }, [color]);
 
+  const toggleDraw = () => {
+    editor.canvas.isDrawingMode = !editor.canvas.isDrawingMode;
+  };
+  const undo = () => {
+    if (editor.canvas._objects.length > 0) {
+      history.push(editor.canvas._objects.pop());
+    }
+    editor.canvas.renderAll();
+  };
+  const redo = () => {
+    if (history.length > 0) {
+      editor.canvas.add(history.pop());
+    }
+  };
 
+  const clear = () => {
+    editor.canvas._objects.splice(0, editor.canvas._objects.length);
+    history.splice(0, history.length);
+    editor.canvas.renderAll();
+  };
 
+  const removeSelectedObject = () => {
+    editor.canvas.remove(editor.canvas.getActiveObject());
+  };
+
+  const onAddCircle = () => {
+    editor.addCircle();
+    editor.addLine();
+  };
+  const onAddRectangle = () => {
+    editor.addRectangle();
+  };
+  const addText = () => {
+    editor.addText("inset text");
+  };
+
+  const exportSVG = () => {
+    const svg = editor.canvas.toSVG();
+    console.info(svg);
+  };
 
   return (
     <div className="App">
       <h1>FabricJS React Sample</h1>
+      <button onClick={onAddCircle}>Add circle</button>
+      <button onClick={onAddRectangle} disabled={!cropImage}>
+        Add Rectangle
+      </button>
+      <button onClick={addText} disabled={!cropImage}>
+        Add Text
+      </button>
+      <button onClick={toggleDraw} disabled={!cropImage}>
+        Toggle draw
+      </button>
+      <button onClick={clear} disabled={!cropImage}>
+        Clear
+      </button>
+      <button onClick={undo} disabled={!cropImage}>
+        Undo
+      </button>
+      <button onClick={redo} disabled={!cropImage}>
+        Redo
+      </button>
+      <button onClick={toggleSize} disabled={!cropImage}>
+        ToggleSize
+      </button>
+      <button onClick={removeSelectedObject} disabled={!cropImage}>
+        Delete
+      </button>
+      <button onClick={(e) => setCropImage(!cropImage)}>Crop</button>
+      <label disabled={!cropImage}>
+        <input
+          disabled={!cropImage}
+          type="color"
+          value={color}
+          onChange={(e) => setColor(e.target.value)}
+        />
+      </label>
+      <button onClick={exportSVG} disabled={!cropImage}>
+        {" "}
+        ToSVG
+      </button>
+      <button onClick={fromSvg} disabled={!cropImage}>
+        fromsvg
+      </button>
 
       <div
         style={{
-          border: `3px ${!cropImage ? 'dotted' : 'solid'} Green`,
-          width: '500px',
-          height: '500px',
-        }}>
+          border: `3px ${!cropImage ? "dotted" : "solid"} Green`,
+          width: "500px",
+          height: "500px"
+        }}
+      >
         <FabricJSCanvas className="sample-canvas" onReady={onReady} />
       </div>
     </div>

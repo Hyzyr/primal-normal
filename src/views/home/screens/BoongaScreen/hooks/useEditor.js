@@ -1,24 +1,35 @@
 import React, { useEffect, useState } from 'react';
-import * as fabric from 'fabric'; // v6
-import { FabricJSCanvas, useFabricJSEditor } from 'fabricjs-react';
+import { fabric } from 'fabric';
+import { useFabricJSEditor } from 'fabricjs-react';
+// import { FabricImage } from 'fabric';
 
-const useEditor = ({ wrapperRef }) => {
-  const [cropImage, setCropImage] = useState(true);
+const useEditor = ({ wrapperRef, imageFile }) => {
   const { editor, onReady } = useFabricJSEditor();
-
   const history = [];
+  const [color, setColor] = useState('#35363a');
+  const [cropImage, setCropImage] = useState(true);
+  const link = React.useRef(null);
+
+  const getWrapperSize = () => {
+    if (!wrapperRef.current) return null;
+    return {
+      width: wrapperRef.current.clientWidth,
+      height: wrapperRef.current.clientHeight,
+    };
+  };
 
   useEffect(() => {
     if (!editor || !fabric) {
       return;
     }
-
+    console.log('add listeners');
     if (cropImage) {
       editor.canvas.__eventListeners = {};
       return;
     }
 
     if (!editor.canvas.__eventListeners['mouse:wheel']) {
+      console.log('mouse:wheel');
       editor.canvas.on('mouse:wheel', function (opt) {
         var delta = opt.e.deltaY;
         var zoom = editor.canvas.getZoom();
@@ -67,83 +78,166 @@ const useEditor = ({ wrapperRef }) => {
       });
     }
 
-    editor.canvas.setHeight(wrapper.clientHeight);
-    editor.canvas.setWidth(wrapper.clientWidth);
-    console.log({
-      clientHeight: wrapper.clientHeight,
-      clientWidth: wrapper.clientWidth,
-    });
-
     editor.canvas.renderAll();
   }, [editor]);
+
+  // const addBackground = () => {
+  //   if (!editor || !fabric) return;
+
+  //   fabric.Image.fromURL('https://via.placeholder.com/800x600', (image) => {
+  //     editor.canvas.setBackgroundImage(
+  //       image,
+  //       editor.canvas.renderAll.bind(editor.canvas)
+  //     );
+  //   });
+  // };
+
+  useEffect(() => {
+    if (!editor || !fabric) return;
+    const wrapperSize = getWrapperSize();
+    let wrapperWidth = wrapperSize.width;
+    let wrapperHeight = wrapperSize.height;
+    console.log({
+      wrapperWidth,
+      wrapperHeight,
+    });
+    editor.canvas.setWidth(wrapperWidth);
+    editor.canvas.setHeight(wrapperHeight);
+    // addBackground();
+    // editor.canvas.renderAll();
+  }, [editor, fabric]);
+
+  useEffect(() => {
+    if (!editor || !fabric || !imageFile) return;
+
+    if (imageFile) {
+      const reader = new FileReader();
+      const wrapperSize = getWrapperSize();
+
+      reader.onload = (e) => {
+        const imgElement = new Image();
+        imgElement.src = e.target.result;
+        imgElement.onload = () => {
+          console.log('img loaded');
+          const img = new fabric.Image(imgElement, {
+            scaleX: wrapperSize.width / imgElement.width,
+            scaleY: wrapperSize.height / imgElement.height,
+          });
+          editor.canvas.setBackgroundImage(
+            img,
+            editor.canvas.renderAll.bind(editor.canvas)
+          );
+        };
+      };
+      reader.readAsDataURL(imageFile);
+      editor.canvas.renderAll();
+    }
+  }, [imageFile]);
+
+  const toggleSize = () => {
+    editor.canvas.freeDrawingBrush.width === 12
+      ? (editor.canvas.freeDrawingBrush.width = 5)
+      : (editor.canvas.freeDrawingBrush.width = 12);
+  };
+
   useEffect(() => {
     if (!editor || !fabric) {
       return;
     }
-    let wrapper = wrapperRef.current;
-    editor.canvas.setHeight(450);
-    editor.canvas.setWidth(450);
+    editor.canvas.freeDrawingBrush.color = color;
+    editor.setStrokeColor(color);
+  }, [color]);
 
-    addBackground();
-    editor.canvas.renderAll();
-  }, [editor?.canvas.backgroundImage]);
-
-  //   const fromSvg = () => {
-  //     fabric.loadSVGFromString(
-  //       `<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-  //       <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-  //       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500" height="500" viewBox="0 0 500 500" xml:space="preserve">
-  //       <desc>Created with Fabric.js 5.3.0</desc>
-  //       <defs>
-  //       </defs>
-  //       <g transform="matrix(1 0 0 1 662.5 750)"  >
-  //         <image style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  xlink:href="https://thegraphicsfairy.com/wp-content/uploads/2019/02/Anatomical-Heart-Illustration-Black-GraphicsFairy.jpg" x="-662.5" y="-750" width="1325" height="1500"></image>
-  //       </g>
-  //       <g transform="matrix(1 0 0 1 120.5 120.5)"  >
-  //       <circle style="stroke: rgb(53,54,58); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;"  cx="0" cy="0" r="20" />
-  //       </g>
-  //       <g transform="matrix(1 0 0 1 245.5 200.5)"  >
-  //       <line style="stroke: rgb(53,54,58); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  x1="-75" y1="-50" x2="75" y2="50" />
-  //       </g>
-  //       <g transform="matrix(1 0 0 1 141.4 220.03)" style=""  >
-  //           <text xml:space="preserve" font-family="Arial" font-size="16" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(53,54,58); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-16.9" y="-5.46" >inset</tspan><tspan x="-16.9" y="15.51" >text</tspan></text>
-  //       </g>
-  //       <g transform="matrix(1 0 0 1 268.5 98.5)"  >
-  //       <rect style="stroke: rgb(53,54,58); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;"  x="-20" y="-20" rx="0" ry="0" width="40" height="40" />
-  //       </g>
-  //       </svg>`,
-  //       (objects, options) => {
-  //         editor.canvas._objects.splice(0, editor.canvas._objects.length);
-  //         editor.canvas.backgroundImage = objects[0];
-  //         const newObj = objects.filter((_, index) => index !== 0);
-  //         newObj.forEach((object) => {
-  //           editor.canvas.add(object);
-  //         });
-
-  //         editor.canvas.renderAll();
-  //       }
-  //     );
-  //   };
-  const addBackground = () => {
-    if (!editor || !fabric) {
-      return;
-      console.log('return');
+  const toggleDraw = () => {
+    editor.canvas.isDrawingMode = !editor.canvas.isDrawingMode;
+  };
+  const undo = () => {
+    if (editor.canvas._objects.length > 0) {
+      history.push(editor.canvas._objects.pop());
     }
+    editor.canvas.renderAll();
+  };
+  const redo = () => {
+    if (history.length > 0) {
+      editor.canvas.add(history.pop());
+    }
+  };
 
-    fabric.Image.fromURL(
-      'https://thegraphicsfairy.com/wp-content/uploads/2019/02/Anatomical-Heart-Illustration-Black-GraphicsFairy.jpg',
-      (image) => {
-        editor.canvas.setBackgroundImage(
-          image,
-          editor.canvas.renderAll.bind(editor.canvas)
-        );
-      }
-    );
+  const clear = () => {
+    editor.canvas._objects.splice(0, editor.canvas._objects.length);
+    history.splice(0, history.length);
+    editor.canvas.renderAll();
+  };
+
+  const removeSelectedObject = () => {
+    editor.canvas.remove(editor.canvas.getActiveObject());
+  };
+
+  const onAddCircle = () => {
+    editor.addCircle();
+    editor.addLine();
+  };
+  const onAddRectangle = () => {
+    editor.addRectangle();
+  };
+  const appendText = (text) => {
+    editor.addText(text);
+  };
+
+  const getLink = () => {
+    if (!link.current) {
+      link.current = document.createElement('a');
+    }
+    return link.current;
+  };
+  const exportSVG = () => {
+    const svg = editor.canvas.toSVG();
+    console.info(svg);
+  };
+  const exportImage = () => {
+    editor.canvas.discardActiveObject();
+    setTimeout(() => {
+      const mergedImage = editor.canvas.toDataURL({
+        format: 'png',
+        quality: 0.85,
+      });
+      let link = getLink();
+      link.href = mergedImage;
+      link.download = `primal-nomad-boongamaker-${Date.now()}.png`;
+      link.click();
+    }, 100);
+  };
+
+  const appendImage = (url) => {
+    const wrapperSize = getWrapperSize();
+    let newWidth = parseInt(0.3 * wrapperSize.width);
+    let newHeight = parseInt(0.3 * wrapperSize.height);
+
+    fabric.Image.fromURL(url, (img) => {
+      let imgWidth = img.naturalWidth || img.width;
+      let imgHeight = img.naturalHeight || img.height;
+
+      img.set({
+        left: 0.35 * wrapperSize.width,
+        top: 0.35 * wrapperSize.height,
+        scaleX: newWidth / imgWidth,
+        scaleY: newHeight / imgHeight,
+        angle: 0,
+        padding: 10,
+        cornersize: 10,
+        hasRotatingPoint: true,
+      });
+      editor.canvas.add(img);
+      editor.canvas.setActiveObject(img);
+    });
   };
 
   return {
     editor,
-    addBackground,
+    // addBackground,
+    exportImage,
+    appendImage,
+    appendText,
     onReady,
   };
 };
