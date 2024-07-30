@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FabricJSCanvas } from 'fabricjs-react';
-import useEditor from './hooks/useEditor';
 
 const BonngaMaker = React.forwardRef(({ editor }, ref) => {
   const { onReady, appendImage } = editor;

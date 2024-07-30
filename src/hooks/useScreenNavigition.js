@@ -20,7 +20,6 @@ const useScreenNavigition = ({
           wrapperRef.current.querySelectorAll(sectionClassName).length;
 
       const transformX = (100 / sectionsCount).toFixed(2) * page;
-      console.log('page: ', page, transformX, sectionsCount);
       gsap.to(wrapperRef.current, {
         xPercent: -transformX,
         duration: 1,

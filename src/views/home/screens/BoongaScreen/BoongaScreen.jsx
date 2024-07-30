@@ -13,12 +13,16 @@ import BoongaTranslator from './BoongaTranslator';
 import BonngaMaker from './BonngaMaker';
 import useEditor from './hooks/useEditor';
 
-const BoongaScreen = () => {
+const BoongaScreen = ({ active }) => {
   const [imageFile, setImageFile] = useState(null);
   const fileRef = React.useRef(null);
   const wrapperRef = React.useRef();
 
-  const editor = useEditor({ wrapperRef, imageFile });
+  const editor = useEditor({
+    wrapperRef,
+    imageFile,
+    dependencies: [active],
+  });
 
   useEffect(() => {
     const slider = document.querySelector(
@@ -52,9 +56,9 @@ const BoongaScreen = () => {
       <div className="boongascreen__bg screen__bg">
         <img src="/images/screens/boonga-screen.png" alt="app-screen-frame" />
       </div>
-      <div className="boongascreen__image">
+      <div className="boongascreen__image" ref={wrapperRef}>
         <img src="/images/placeholder-stone.png" alt="placeholder" />
-        <BonngaMaker editor={editor} ref={wrapperRef} />
+        <BonngaMaker editor={editor}  />
       </div>
       <div className="boongascreen__group">
         <Button

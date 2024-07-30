@@ -5,7 +5,7 @@ import { PageScreens } from './constants/AppContstants';
 
 const App = () => {
   const [prevScreen, setPrevScreen] = useState(null);
-  const [screen, setScreen] = useState(PageScreens.BOONGA);
+  const [screen, setScreen] = useState(null);
 
   const setNewScreen = (id) => {
     if (id === screen) return;

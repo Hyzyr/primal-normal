@@ -9,7 +9,7 @@ const useScreen = () => {
     setTimeline(gsap.timeline());
   });
 
-  const hideScreen = (screen, timing = '>') => {
+  const hideScreen = (screen, timing = '>', opts = {}) => {
     if (!screen || !timeline) return;
     const onComplete = () => {
       gsap.set(screen, { display: 'none' });
@@ -23,11 +23,12 @@ const useScreen = () => {
         duration: 0.8,
         ease: 'power3',
         onComplete,
+        ...opts,
       },
       timing
     );
   };
-  const showScreen = (screen, timing = '>') => {
+  const showScreen = (screen, timing = '>', opts = {}) => {
     if (!screen || !timeline) {
       if (screen) gsap.set(screen, { display: 'flex' });
       return;
@@ -35,7 +36,7 @@ const useScreen = () => {
     timeline.fromTo(
       screen,
       { display: 'flex', yPercent: -100, opacity: 0 },
-      { yPercent: 0, opacity: 1, duration: 1.2, ease: 'power3' },
+      { yPercent: 0, opacity: 1, duration: 1.2, ease: 'power3', ...opts },
       timing
     );
   };

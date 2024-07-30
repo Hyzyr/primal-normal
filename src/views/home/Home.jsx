@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ScreenWrapper from './screens/ScreenWrapper';
 import AppScreen from './screens/AppScreen';
 import WalletScreen from './screens/WalletScreen';
@@ -13,6 +13,7 @@ import ArrowButton, {
 } from 'src/components/buttons/ArrowButton';
 
 const Home = ({ screen, prevScreen }) => {
+  const [newScreenActive, setNewScreenActive] = useState(false);
   const ref = useRef(null);
 
   const bgNav = useHomeBg({ wrapperRef: ref });
@@ -20,11 +21,15 @@ const Home = ({ screen, prevScreen }) => {
 
   useEffect(() => {
     if (!ref.current) return;
+    setNewScreenActive(false);
     const prevScreenDom = ref.current.querySelector(`#${prevScreen}`);
     const screenNavDom = ref.current.querySelector(`#${screen}`);
 
     if (prevScreen) screenNav.hideScreen(prevScreenDom);
-    if (screen) screenNav.showScreen(screenNavDom, prevScreen ? '<=0.4' : null);
+    if (screen)
+      screenNav.showScreen(screenNavDom, prevScreen ? '<=0.4' : null, {
+        onStart: () => setNewScreenActive(true),
+      });
   }, [screen, prevScreen]);
 
   return (
@@ -59,7 +64,9 @@ const Home = ({ screen, prevScreen }) => {
           id={PageScreens.BOONGA}
           active={screen === PageScreens.BOONGA}
           className="_third">
-          <BoongaScreen />
+          <BoongaScreen
+            active={screen === PageScreens.BOONGA && newScreenActive}
+          />
         </ScreenWrapper>
         <ScreenWrapper
           id={PageScreens.HALL}

@@ -13,7 +13,6 @@ const WallScreen = () => {
   const popUpControl = (image) => {
     setImagePath(image);
     setPopUp(!popUp);
-    console.log(imagePath);
   };
 
   return (

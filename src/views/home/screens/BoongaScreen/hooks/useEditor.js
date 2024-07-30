@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { fabric } from 'fabric';
 import { useFabricJSEditor } from 'fabricjs-react';
 // import { FabricImage } from 'fabric';
+import bgImage from '../assets/stone-bg.png';
 
-const useEditor = ({ wrapperRef, imageFile }) => {
+const useEditor = ({ wrapperRef, imageFile, dependencies }) => {
   const { editor, onReady } = useFabricJSEditor();
-  const history = [];
-  const [color, setColor] = useState('#35363a');
-  const [cropImage, setCropImage] = useState(true);
+  // const history = [];
+  // const [color, setColor] = useState('#35363a');
+  // const [cropImage, setCropImage] = useState(true);
   const link = React.useRef(null);
 
   const getWrapperSize = () => {
@@ -22,14 +23,12 @@ const useEditor = ({ wrapperRef, imageFile }) => {
   //   if (!editor || !fabric) {
   //     return;
   //   }
-  //   console.log('add listeners');
   //   if (cropImage) {
   //     editor.canvas.__eventListeners = {};
   //     return;
   //   }
 
   //   if (!editor.canvas.__eventListeners['mouse:wheel']) {
-  //     console.log('mouse:wheel');
   //     editor.canvas.on('mouse:wheel', function (opt) {
   //       var delta = opt.e.deltaY;
   //       var zoom = editor.canvas.getZoom();
@@ -94,19 +93,37 @@ const useEditor = ({ wrapperRef, imageFile }) => {
 
   useEffect(() => {
     if (!editor || !fabric) return;
+
     const wrapperSize = getWrapperSize();
     let wrapperWidth = wrapperSize.width;
     let wrapperHeight = wrapperSize.height;
-    console.log({
-      wrapperWidth,
-      wrapperHeight,
-    });
+ 
+    window.wrapper = wrapperRef.current;
+
     editor.canvas.setWidth(wrapperWidth);
     editor.canvas.setHeight(wrapperHeight);
     // addBackground();
-    // editor.canvas.renderAll();
-  }, [editor, fabric]);
+    setBackgroundImage(bgImage);
+    editor.canvas.renderAll();
+  }, [editor, fabric, ...dependencies]);
 
+  const setBackgroundImage = (imgURL) => {
+    const wrapperSize = getWrapperSize();
+
+    const imgElement = new Image();
+    imgElement.src = imgURL;
+    imgElement.onload = () => {
+      const img = new fabric.Image(imgElement, {
+        scaleX: wrapperSize.width / imgElement.width,
+        scaleY: wrapperSize.height / imgElement.height,
+      });
+      editor.canvas.setBackgroundImage(
+        img,
+        editor.canvas.renderAll.bind(editor.canvas)
+      );
+    };
+    editor.canvas.renderAll();
+  };
   useEffect(() => {
     if (!editor || !fabric || !imageFile) return;
 
@@ -115,22 +132,9 @@ const useEditor = ({ wrapperRef, imageFile }) => {
       const wrapperSize = getWrapperSize();
 
       reader.onload = (e) => {
-        const imgElement = new Image();
-        imgElement.src = e.target.result;
-        imgElement.onload = () => {
-          console.log('img loaded');
-          const img = new fabric.Image(imgElement, {
-            scaleX: wrapperSize.width / imgElement.width,
-            scaleY: wrapperSize.height / imgElement.height,
-          });
-          editor.canvas.setBackgroundImage(
-            img,
-            editor.canvas.renderAll.bind(editor.canvas)
-          );
-        };
+        setBackgroundImage(e.target.result);
       };
       reader.readAsDataURL(imageFile);
-      editor.canvas.renderAll();
     }
   }, [imageFile]);
 
@@ -182,6 +186,7 @@ const useEditor = ({ wrapperRef, imageFile }) => {
   // };
   const appendText = (text) => {
     editor.addText(text);
+    editor.canvas.renderAll();
   };
 
   const getLink = () => {
@@ -230,6 +235,7 @@ const useEditor = ({ wrapperRef, imageFile }) => {
       editor.canvas.add(img);
       editor.canvas.setActiveObject(img);
     });
+    editor.canvas.renderAll();
   };
 
   return {
