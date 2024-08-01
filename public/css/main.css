@@ -281,6 +281,21 @@ svg {
   cursor: default;
   filter: grayscale(0.15);
 }
+.btn-icon._toggle img:nth-child(2) {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+.btn-icon.active img:nth-child(1) {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+.btn-icon.active img:nth-child(2) {
+  opacity: 1;
+  pointer-events: all;
+  position: unset;
+}
 
 .button {
   position: relative;
@@ -535,6 +550,14 @@ svg {
 .home-arrow.btn-arrow-right {
   right: 5%;
 }
+.home-volume {
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+  z-index: 1;
+  opacity: 1;
+  width: 4.5vw;
+}
 
 .screen {
   position: absolute;
@@ -569,6 +592,60 @@ svg {
 }
 .walletscreen__content-left .input {
   width: 100%;
+}
+.walletscreen__stickers {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.walletscreen__popup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background: rgba(16, 16, 16, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+.walletscreen__popup-inner {
+  margin: auto;
+  position: relative;
+  transform: scale(0.7);
+  transition: 0.3s ease;
+}
+.walletscreen__popup-close {
+  position: absolute;
+  right: -12%;
+  top: 0%;
+  width: 4vw;
+  transition: 0.3s ease;
+}
+.walletscreen__popup-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27vw;
+}
+.walletscreen__popup-image img {
+  width: 100%;
+  height: auto;
+}
+.walletscreen__popup audio {
+  display: none;
+}
+.walletscreen__popup.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.walletscreen__popup.active .walletscreen__popup-inner {
+  transform: scale(1);
 }
 
 .wallscreen {

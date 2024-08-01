@@ -1,7 +1,7 @@
-import React from 'react';
-import Input from 'src/components/input/Input';
+import React from "react";
+import Input from "src/components/input/Input";
 
-const WalletScreen = () => {
+const WalletScreen = ({ popUp, setPopUp }) => {
   return (
     <div className="walletscreen screen">
       <div className="walletscreen__bg screen__bg">
@@ -9,7 +9,10 @@ const WalletScreen = () => {
       </div>
       <div className="walletscreen__content">
         <div className="walletscreen__content-left">
-          <Input placeholder="check your wallet" />
+          <Input
+            placeholder="check your wallet"
+            onSubmit={() => setPopUp(!popUp)}
+          />
         </div>
       </div>
     </div>
