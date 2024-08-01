@@ -10,7 +10,7 @@ import Textarea from 'src/components/textarea/Textarea';
 import { items, stickers } from './constants';
 import BoongaSlider from './BoongaSlider';
 import BoongaTranslator from './BoongaTranslator';
-import BonngaMaker from './BonngaMaker';
+import BoongaMaker from './BoongaMaker';
 import useEditor from './hooks/useEditor';
 
 const BoongaScreen = ({ active }) => {
@@ -58,7 +58,7 @@ const BoongaScreen = ({ active }) => {
       </div>
       <div className="boongascreen__image" ref={wrapperRef}>
         <img src="/images/placeholder-stone.png" alt="placeholder" />
-        <BonngaMaker editor={editor}  />
+        <BoongaMaker editor={editor}  />
       </div>
       <div className="boongascreen__group">
         <Button

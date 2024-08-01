@@ -1,8 +1,8 @@
 import React from 'react';
 import { FabricJSCanvas } from 'fabricjs-react';
 
-const BonngaMaker = React.forwardRef(({ editor }, ref) => {
-  const { onReady, appendImage } = editor;
+const BoongaMaker = React.forwardRef(({ editor }, ref) => {
+  const { onReady } = editor;
 
   return (
     <div className="boongamaker" ref={ref}>
@@ -11,4 +11,4 @@ const BonngaMaker = React.forwardRef(({ editor }, ref) => {
   );
 });
  
-export default BonngaMaker;
+export default BoongaMaker;

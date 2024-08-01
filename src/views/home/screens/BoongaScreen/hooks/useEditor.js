@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import { fabric } from 'fabric';
+import { fabric } from 'fabric';
 import { useFabricJSEditor } from 'fabricjs-react';
 // import { FabricImage } from 'fabric';
 import bgImage from '../assets/stone-bg.png';

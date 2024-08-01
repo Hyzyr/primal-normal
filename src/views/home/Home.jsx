@@ -1,19 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
-import ScreenWrapper from "./screens/ScreenWrapper";
-import AppScreen from "./screens/AppScreen";
-import BoongaScreen from "./screens/BoongaScreen";
-import { WalletScreen } from "./screens/WalletScreen";
-import HomeBg from "./HomeBg";
-import useHomeBg from "./hooks/useHomeBg";
-import { PageScreens } from "src/constants/AppContstants";
-import useScreen from "./hooks/useScreen";
-import WallScreen from "./screens/WallScreen";
+import React, { useEffect, useRef, useState } from 'react';
+import ScreenWrapper from './screens/ScreenWrapper';
+import AppScreen from './screens/AppScreen';
+import BoongaScreen from './screens/BoongaScreen';
+import { WalletScreen } from './screens/WalletScreen';
+import HomeBg from './HomeBg';
+import useHomeBg from './hooks/useHomeBg';
+import { PageScreens } from 'src/constants/AppContstants';
+import useScreen from './hooks/useScreen';
+import WallScreen from './screens/WallScreen';
 import ArrowButton, {
   ARROW_DIRECTIONS,
-} from "src/components/buttons/ArrowButton";
-import ButtonIcon from "src/components/buttons/ButtonIcon";
+} from 'src/components/buttons/ArrowButton';
+import AudioController from 'src/components/AudioController';
 
-const Home = ({ screen, prevScreen, popUp, setPopUp, sound, setSound }) => {
+const Home = ({ screen, prevScreen }) => {
   const [newScreenActive, setNewScreenActive] = useState(false);
   const ref = useRef(null);
 
@@ -28,7 +28,7 @@ const Home = ({ screen, prevScreen, popUp, setPopUp, sound, setSound }) => {
 
     if (prevScreen) screenNav.hideScreen(prevScreenDom);
     if (screen)
-      screenNav.showScreen(screenNavDom, prevScreen ? "<=0.4" : null, {
+      screenNav.showScreen(screenNavDom, prevScreen ? '<=0.4' : null, {
         onStart: () => setNewScreenActive(true),
       });
   }, [screen, prevScreen]);
@@ -47,31 +47,25 @@ const Home = ({ screen, prevScreen, popUp, setPopUp, sound, setSound }) => {
         disabled={bgNav?.nextDisabled}
         onClick={() => bgNav.nextPage()}
       />
-      <AudioButton
-        isMuted={!sound}
-        setMuted={(isMuted) => setSound(!isMuted)}
-      />
+      <AudioController />
       <div className="home" ref={ref}>
         <HomeBg />
         <ScreenWrapper
           id={PageScreens.ORDINAL}
           active={screen === PageScreens.ORDINAL}
-          className="_first"
-        >
+          className="_first">
           <AppScreen />
         </ScreenWrapper>
         <ScreenWrapper
           id={PageScreens.WALLET}
           active={screen === PageScreens.WALLET}
-          className="_second"
-        >
-          <WalletScreen popUp={popUp} setPopUp={setPopUp} />
+          className="_second">
+          <WalletScreen  />
         </ScreenWrapper>
         <ScreenWrapper
           id={PageScreens.BOONGA}
           active={screen === PageScreens.BOONGA}
-          className="_third"
-        >
+          className="_third">
           <BoongaScreen
             active={screen === PageScreens.BOONGA && newScreenActive}
           />
@@ -79,42 +73,13 @@ const Home = ({ screen, prevScreen, popUp, setPopUp, sound, setSound }) => {
         <ScreenWrapper
           id={PageScreens.HALL}
           active={screen === PageScreens.HALL}
-          className="_third"
-        >
+          className="_third">
           <WallScreen />
         </ScreenWrapper>
       </div>
     </div>
   );
 };
-const AudioButton = ({ isMuted, setMuted }) => {
-  const ref = useRef(null);
 
-  useEffect(() => {
-    if (!isMuted) ref.current.play();
-    const listener = () => {
-      if (!isMuted) ref.current.play();
-    };
-
-    window.addEventListener("click", listener);
-    return () => window.removeEventListener("click", listener);
-  }, [isMuted]);
-
-  return (
-    <>
-      <audio ref={ref} style={{ display: "none" }}>
-        <source src="/sounds/bg-music.MP3" type="audio/mp3" />
-        <source src="test.ogg" type="audio/ogg" />
-      </audio>
-      <ButtonIcon
-        addClass={`home-volume ${!isMuted ? "active" : ""}`}
-        icon={"/images/components/sound-off.png"}
-        secondIcon={"/images/components/sound-on.png"}
-        alt={"sound"}
-        onClick={() => setMuted(!isMuted)}
-      />
-    </>
-  );
-};
 
 export default Home;
