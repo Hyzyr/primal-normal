@@ -10,5 +10,5 @@ const BonngaMaker = React.forwardRef(({ editor }, ref) => {
     </div>
   );
 });
-
+ 
 export default BonngaMaker;
