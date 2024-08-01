@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { fabric } from 'fabric';
-import { useFabricJSEditor } from 'fabricjs-react';
+import React, { useEffect, useState } from "react";
+import { fabric } from "fabric";
+import { useFabricJSEditor } from "fabricjs-react";
 // import { FabricImage } from 'fabric';
-import bgImage from '../assets/stone-bg.png';
+import bgImage from "../assets/stone-bg.png";
 
 const useEditor = ({ wrapperRef, imageFile, dependencies }) => {
   const { editor, onReady } = useFabricJSEditor();
@@ -97,9 +97,8 @@ const useEditor = ({ wrapperRef, imageFile, dependencies }) => {
     const wrapperSize = getWrapperSize();
     let wrapperWidth = wrapperSize.width;
     let wrapperHeight = wrapperSize.height;
- 
-    window.wrapper = wrapperRef.current;
 
+    window.wrapper = wrapperRef.current;
     editor.canvas.setWidth(wrapperWidth);
     editor.canvas.setHeight(wrapperHeight);
     // addBackground();
@@ -177,21 +176,20 @@ const useEditor = ({ wrapperRef, imageFile, dependencies }) => {
   //   editor.canvas.remove(editor.canvas.getActiveObject());
   // };
 
-  // const onAddCircle = () => {
-  //   editor.addCircle();
-  //   editor.addLine();
-  // };
-  // const onAddRectangle = () => {
-  //   editor.addRectangle();
-  // };
   const appendText = (text) => {
-    editor.addText(text);
+    let headText = new fabric.Text(text, {
+      fill: "#972118",
+      top: 50,
+      left: 50,
+    });
+    // editor.addText(text);
+    editor.canvas.add(headText);
     editor.canvas.renderAll();
   };
 
   const getLink = () => {
     if (!link.current) {
-      link.current = document.createElement('a');
+      link.current = document.createElement("a");
     }
     return link.current;
   };
@@ -203,9 +201,10 @@ const useEditor = ({ wrapperRef, imageFile, dependencies }) => {
     editor.canvas.discardActiveObject();
     setTimeout(() => {
       const mergedImage = editor.canvas.toDataURL({
-        format: 'png',
+        format: "png",
         quality: 0.85,
       });
+
       let link = getLink();
       link.href = mergedImage;
       link.download = `primal-nomad-boongamaker-${Date.now()}.png`;

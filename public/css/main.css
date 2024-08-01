@@ -724,6 +724,11 @@ svg {
   justify-content: center;
   width: calc(25% - 1.5vh);
   position: relative;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.wallscreen__frame:hover {
+  transform: translateY(-5px);
 }
 .wallscreen__frame-image {
   display: flex;
@@ -817,6 +822,7 @@ svg {
   top: -1%;
   width: 6%;
   z-index: 1;
+  transition: 0.3s ease;
 }
 
 .boongascreen__content {
