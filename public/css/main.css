@@ -343,6 +343,76 @@ svg {
   transform: translateY(0%);
 }
 
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  background: #101010;
+}
+.popup__inner {
+  position: relative;
+  margin: auto;
+  z-index: 0;
+}
+.popup__inner-container {
+  width: 100%;
+}
+.popup__inner-container p {
+  width: 85%;
+  position: absolute;
+  top: 46%;
+  left: 8%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 5.5vw;
+  line-height: 1.2;
+  text-align: center;
+}
+.popup__inner-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+.popup__inner-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.popup__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup__bg::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(16, 16, 16, 0.7);
+}
+.popup__bg video,
+.popup__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .ratioImage {
   position: relative;
   padding-bottom: 65%;
