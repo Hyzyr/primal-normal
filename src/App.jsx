@@ -3,7 +3,7 @@ import Home from "src/views/home/Home";
 import Nav from "src/components/nav/Nav";
 import { PageScreens } from "./constants/AppContstants";
 import { WalletPopUp } from "./views/home/screens/WalletScreen";
-import Popup from "./components/popup/Popup";
+import Mobile from "./views/mobile/Mobile";
 
 const App = () => {
   const [prevScreen, setPrevScreen] = useState(null);
@@ -22,7 +22,7 @@ const App = () => {
         screen={screen}
         prevScreen={prevScreen}
       />
-      {/* <Popup /> */}
+      {/* <Mobile/> */}
     </>
   );
 };
