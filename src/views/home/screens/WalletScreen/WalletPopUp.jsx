@@ -22,7 +22,7 @@ const WalletPopUp = ({
       case 'resubmit':
         return '/images/stickers/eligible-gtd.png';
       case 'accepted':
-        return '/images/stickers/gtd-accepted';
+        return '/images/stickers/gtd-accepted.png';
       default:
         return null;
     }

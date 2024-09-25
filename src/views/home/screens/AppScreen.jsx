@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 
 const AppScreen = ({}) => {
+  const [src, setSrc] = useState('');
+  const fbox = React.useRef(null);
+  useEffect(() => {
+    if (fbox.current) {
+      window.fbox = fbox.current;
+      setTimeout(() => {
+        setSrc('https://primal-nomad-app.vercel.app/');
+      }, 3000);
+    }
+  }, []);
+
   return (
     <div className="appscreen screen">
       <div className="appscreen__bg screen__bg">
@@ -8,10 +19,7 @@ const AppScreen = ({}) => {
       </div>
       <div className="appscreen__image">
         {/* <img src="/images/placeholder.jpg" alt="placeholder" /> */}
-        <iframe
-          src="https://primal-nomad-app.vercel.app/"
-          frameborder="0"
-        ></iframe>
+        <iframe ref={fbox} src={src} frameborder="0"></iframe>
       </div>
     </div>
   );
