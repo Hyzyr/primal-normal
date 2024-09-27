@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
-import Input from 'src/components/input/Input';
-import { WalletPopUp } from '.';
+import React, { useState } from "react";
+import Input from "src/components/input/Input";
+import { WalletPopUp } from ".";
+import axios from "axios";
 
 const WalletScreen = () => {
   const [popup, setPopup] = useState(false);
+  const [sticker, setSticker] = useState("");
+  const getWallet = (popup, sticker) => {
+    setPopup(popup);
+    setSticker(sticker);
+    // const response =  axios.get("http://localhost:3000/test");
+    // console.log(response.data);
+  };
   return (
     <>
       <div className="walletscreen screen">
@@ -14,12 +22,12 @@ const WalletScreen = () => {
           <div className="walletscreen__content-left">
             <Input
               placeholder="check your wallet"
-              onSubmit={() => setPopup(true)}
+              onSubmit={() => getWallet(true, "fail")}
             />
           </div>
         </div>
       </div>
-      <WalletPopUp active={popup} setActive={setPopup} />
+      <WalletPopUp active={popup} setActive={setPopup} sticker={sticker} />
     </>
   );
 };
