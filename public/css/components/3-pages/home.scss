@@ -9,6 +9,8 @@
     width: 41%;
     height: 61%;
     z-index: -1;
+    background: #2e2e2e;
+
     img,
     iframe {
       width: 100%;
@@ -16,7 +18,7 @@
       object-fit: contain;
     }
   }
-  &__bg{
+  &__bg {
     pointer-events: none;
   }
 }
@@ -260,7 +262,7 @@
     }
     &:after {
       position: absolute;
-      content: "";
+      content: '';
       width: 100%;
       height: 100%;
       background: radial-gradient(#ffc2b5, transparent 70%);

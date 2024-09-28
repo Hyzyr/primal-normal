@@ -1,16 +1,23 @@
-import React, { useState } from "react";
-import Input from "src/components/input/Input";
-import { WalletPopUp } from ".";
-import axios from "axios";
+import React, { useState } from 'react';
+import Input from 'src/components/input/Input';
+import { WalletPopUp } from '.';
+import { checkWalletFromApi, WALLET_STATES } from './api/walletCheck';
 
 const WalletScreen = () => {
   const [popup, setPopup] = useState(false);
-  const [sticker, setSticker] = useState("");
-  const getWallet = (popup, sticker) => {
-    setPopup(popup);
-    setSticker(sticker);
-    // const response =  axios.get("http://localhost:3000/test");
-    // console.log(response.data);
+  const [sticker, setSticker] = useState('');
+  const checkWallet = (value) => {
+    checkWalletFromApi(value)
+      .then(({ status, data }) => {
+        if (status !== 200) console.log('respoonse data ', data);
+        setSticker(status === 200 ? data : WALLET_STATES.NOT_REGISTERED);
+        setPopup(true);
+      })
+      .catch((error) => {
+        setSticker(WALLET_STATES.NOT_REGISTERED);
+        setPopup(true);
+        console.log('error checkWalletFromApi: \n', error);
+      });
   };
   return (
     <>
@@ -22,7 +29,7 @@ const WalletScreen = () => {
           <div className="walletscreen__content-left">
             <Input
               placeholder="check your wallet"
-              onSubmit={() => getWallet(true, "fail")}
+              onSubmit={(value) => checkWallet(value)}
             />
           </div>
         </div>

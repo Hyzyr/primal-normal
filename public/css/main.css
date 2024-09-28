@@ -460,6 +460,7 @@ svg {
   width: 41%;
   height: 61%;
   z-index: -1;
+  background: #2e2e2e;
 }
 .appscreen__image img,
 .appscreen__image iframe {

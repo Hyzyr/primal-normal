@@ -6,6 +6,7 @@ import { WalletPopUp } from './views/home/screens/WalletScreen';
 import Mobile from './views/mobile/Mobile';
 import useMobileCheck from './hooks/useMobileCheck';
 
+
 const App = () => {
   const [prevScreen, setPrevScreen] = useState(null);
   const [screen, setScreen] = useState(null);
