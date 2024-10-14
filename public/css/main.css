@@ -420,6 +420,8 @@ svg {
 .nav-btn img {
   height: 1em;
   width: auto;
+  max-height: 6vw;
+  max-width: 16vw;
 }
 .nav-btn:hover {
   transform: translateY(-2%);
@@ -448,6 +450,9 @@ svg {
   opacity: 0.85;
   mix-blend-mode: hard-light;
   transform: translateY(-50%);
+}
+.nav-btn._lg img {
+  max-width: 20vw;
 }
 
 .appscreen__image {
@@ -1195,6 +1200,95 @@ svg {
   min-width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.leaderboard {
+  transform: translate(-50%, 0%);
+  top: unset;
+  bottom: 0;
+}
+.leaderboard__list {
+  font-size: 2.2vw;
+  line-height: 1;
+  position: absolute;
+  top: 18%;
+  right: 11.5%;
+  width: 25%;
+  height: 70%;
+  overflow: auto;
+  padding-right: 5px;
+  scrollbar-width: none; /* Firefox 64 */
+  -ms-overflow-style: none; /* Internet Explorer 11 */
+}
+.leaderboard__list::-webkit-scrollbar { /** WebKit */
+  display: none;
+}
+.leaderboard__list li {
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.leaderboard__item {
+  position: absolute;
+  width: 12%;
+  height: 24%;
+  z-index: 0;
+}
+.leaderboard__item-image {
+  width: 73%;
+  height: 67%;
+  position: absolute;
+  top: 16%;
+  right: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+.leaderboard__item-image img {
+  width: 100%;
+  height: 100%;
+}
+.leaderboard__item-image._lg {
+  width: 78%;
+  height: 71%;
+  top: 9%;
+  right: 9%;
+}
+.leaderboard__item-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.leaderboard__item-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.leaderboard__item._first {
+  top: -1%;
+  left: 21%;
+}
+.leaderboard__item._second {
+  width: 10.5%;
+  height: 20%;
+  top: 28%;
+  left: 12%;
+}
+.leaderboard__item._third {
+  width: 10.5%;
+  height: 20%;
+  top: 33%;
+  left: 29%;
+}
+.leaderboard .screen__bg img {
+  height: auto;
+  max-height: 70vh;
 }
 
 @media (max-width: 1540px) {

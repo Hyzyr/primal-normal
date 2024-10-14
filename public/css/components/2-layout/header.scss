@@ -52,6 +52,8 @@
     img {
       height: 1em;
       width: auto;
+      max-height: 6vw;
+      max-width: 16vw;
     }
     &:hover {
       transform: translateY(-2%);
@@ -80,6 +82,11 @@
         opacity: 0.85;
         mix-blend-mode: hard-light;
         transform: translateY(-50%);
+      }
+    }
+    &._lg {
+      img {
+        max-width: 20vw;
       }
     }
   }

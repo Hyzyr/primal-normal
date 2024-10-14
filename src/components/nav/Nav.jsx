@@ -25,6 +25,7 @@ const Nav = ({ screen, setScreen }) => {
             active={screen === PageScreens.WALLET ? "active" : ""}
             img="/images/nav/nav-button-wallet-checker.png"
             alt="wallet-checker"
+            addClass="_lg"
           />
           <NavBtn
             onClick={() => setScreen(PageScreens.HALL)}
@@ -38,13 +39,26 @@ const Nav = ({ screen, setScreen }) => {
             img="/images/nav/nav-button-boonga-maker.png "
             alt="boonga-maker"
           />
+          <NavBtn
+            onClick={() => setScreen(PageScreens.LEADERBOARD)}
+            active={screen === PageScreens.LEADERBOARD ? "active" : ""}
+            img="/images/nav/nav-button-leaderboard.png "
+            alt="boonga-maker"
+          />
         </div>
       </div>
     </nav>
   );
 };
 
-const NavBtn = ({ img = "", alt, active = false, onClick, ...props }) => {
+const NavBtn = ({
+  img = "",
+  alt,
+  active = false,
+  addClass = "",
+  onClick,
+  ...props
+}) => {
   const playSound = useButtonSound();
 
   const handleClick = () => {
@@ -56,7 +70,9 @@ const NavBtn = ({ img = "", alt, active = false, onClick, ...props }) => {
   return (
     <button
       type="button"
-      className={`nav__inner-link nav-btn ${active ? "active" : ""}`}
+      className={`nav__inner-link nav-btn ${
+        active ? "active" : ""
+      } ${addClass}`}
       onClick={handleClick}
       {...props}
     >

@@ -1,17 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react';
-import ScreenWrapper from './screens/ScreenWrapper';
-import AppScreen from './screens/AppScreen';
-import BoongaScreen from './screens/BoongaScreen';
-import { WalletScreen } from './screens/WalletScreen';
-import HomeBg from './HomeBg';
-import useHomeBg from './hooks/useHomeBg';
-import { PageScreens } from 'src/constants/AppContstants';
-import useScreen from './hooks/useScreen';
-import WallScreen from './screens/WallScreen';
+import React, { useEffect, useRef, useState } from "react";
+import ScreenWrapper from "./screens/ScreenWrapper";
+import AppScreen from "./screens/AppScreen";
+import BoongaScreen from "./screens/BoongaScreen";
+import { WalletScreen } from "./screens/WalletScreen";
+import HomeBg from "./HomeBg";
+import useHomeBg from "./hooks/useHomeBg";
+import { PageScreens } from "src/constants/AppContstants";
+import useScreen from "./hooks/useScreen";
+import WallScreen from "./screens/WallScreen";
 import ArrowButton, {
   ARROW_DIRECTIONS,
-} from 'src/components/buttons/ArrowButton';
-import AudioController from 'src/components/AudioController';
+} from "src/components/buttons/ArrowButton";
+import AudioController from "src/components/AudioController";
+import { LeaderboardScreen } from "./screens/LeaderboardScreen";
 
 const Home = ({ screen, prevScreen }) => {
   const [newScreenActive, setNewScreenActive] = useState(false);
@@ -28,7 +29,7 @@ const Home = ({ screen, prevScreen }) => {
 
     if (prevScreen) screenNav.hideScreen(prevScreenDom);
     if (screen)
-      screenNav.showScreen(screenNavDom, prevScreen ? '<=0.4' : null, {
+      screenNav.showScreen(screenNavDom, prevScreen ? "<=0.4" : null, {
         onStart: () => setNewScreenActive(true),
       });
   }, [screen, prevScreen]);
@@ -53,19 +54,22 @@ const Home = ({ screen, prevScreen }) => {
         <ScreenWrapper
           id={PageScreens.ORDINAL}
           active={screen === PageScreens.ORDINAL}
-          className="_first">
+          className="_first"
+        >
           <AppScreen />
         </ScreenWrapper>
         <ScreenWrapper
           id={PageScreens.WALLET}
           active={screen === PageScreens.WALLET}
-          className="_second">
-          <WalletScreen  />
+          className="_second"
+        >
+          <WalletScreen />
         </ScreenWrapper>
         <ScreenWrapper
           id={PageScreens.BOONGA}
           active={screen === PageScreens.BOONGA}
-          className="_third">
+          className="_third"
+        >
           <BoongaScreen
             active={screen === PageScreens.BOONGA && newScreenActive}
           />
@@ -73,13 +77,20 @@ const Home = ({ screen, prevScreen }) => {
         <ScreenWrapper
           id={PageScreens.HALL}
           active={screen === PageScreens.HALL}
-          className="_third">
+          className="_third"
+        >
           <WallScreen />
+        </ScreenWrapper>
+        <ScreenWrapper
+          id={PageScreens.LEADERBOARD}
+          active={screen === PageScreens.LEADERBOARD}
+          className="_fourth"
+        >
+          <LeaderboardScreen />
         </ScreenWrapper>
       </div>
     </div>
   );
 };
-
 
 export default Home;
