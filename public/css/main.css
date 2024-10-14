@@ -1215,7 +1215,7 @@ svg {
   bottom: 0;
 }
 .leaderboard__list {
-  font-size: 2.6vw;
+  font-size: 2.2vw;
   text-shadow: -0.03em 0.03em #fff;
   font-weight: 700;
   line-height: 1;
@@ -1283,7 +1283,7 @@ svg {
   position: absolute;
   width: 68%;
   bottom: 8%;
-  left: 22%;
+  left: 19%;
   font-size: 1vw;
   line-height: 1;
   text-shadow: -0.03em 0.03em #fff;
@@ -1314,7 +1314,7 @@ svg {
 .leaderboard .screen__bg img {
   height: auto;
   max-height: 70vw;
-  max-width: 75vw;
+  max-width: 70vw;
 }
 
 @media (max-width: 1540px) {
@@ -1329,6 +1329,9 @@ svg {
   }
 }
 @media (max-width: 1728px) {
+  .leaderboard__list {
+    font-size: 2.6vw;
+  }
   .leaderboard .screen__bg img {
     max-width: 85vw;
   }
