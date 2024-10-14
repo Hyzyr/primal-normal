@@ -127,6 +127,13 @@ body.active {
   overflow: hidden;
 }
 
+body.hideButtons .home-arrow {
+  display: none;
+}
+body.hideButtons .home-volume {
+  display: none;
+}
+
 a {
   cursor: pointer;
   text-decoration: none;
@@ -1208,7 +1215,9 @@ svg {
   bottom: 0;
 }
 .leaderboard__list {
-  font-size: 2.2vw;
+  font-size: 2.6vw;
+  text-shadow: -0.03em 0.03em #fff;
+  font-weight: 700;
   line-height: 1;
   position: absolute;
   top: 18%;
@@ -1234,15 +1243,15 @@ svg {
 .leaderboard__item {
   position: absolute;
   width: 12%;
-  height: 24%;
+  height: 26%;
   z-index: 0;
 }
 .leaderboard__item-image {
-  width: 73%;
-  height: 67%;
+  width: 70%;
+  height: 63%;
   position: absolute;
   top: 16%;
-  right: 10%;
+  right: 12%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1253,10 +1262,10 @@ svg {
   height: 100%;
 }
 .leaderboard__item-image._lg {
-  width: 78%;
-  height: 71%;
-  top: 9%;
-  right: 9%;
+  width: 75%;
+  height: 67%;
+  top: 8%;
+  right: 10%;
 }
 .leaderboard__item-bg {
   width: 100%;
@@ -1270,25 +1279,42 @@ svg {
   height: 100%;
   object-fit: contain;
 }
+.leaderboard__item-text {
+  position: absolute;
+  width: 68%;
+  bottom: 8%;
+  left: 22%;
+  font-size: 1vw;
+  line-height: 1;
+  text-shadow: -0.03em 0.03em #fff;
+  font-weight: 700;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .leaderboard__item._first {
-  top: -1%;
+  top: -2%;
   left: 21%;
 }
 .leaderboard__item._second {
   width: 10.5%;
-  height: 20%;
-  top: 28%;
+  height: 21%;
+  top: 27%;
   left: 12%;
 }
 .leaderboard__item._third {
   width: 10.5%;
-  height: 20%;
-  top: 33%;
+  height: 22%;
+  top: 31%;
   left: 29%;
 }
 .leaderboard .screen__bg img {
   height: auto;
-  max-height: 70vh;
+  max-height: 70vw;
+  max-width: 75vw;
 }
 
 @media (max-width: 1540px) {
@@ -1302,8 +1328,20 @@ svg {
     font-size: 2vw;
   }
 }
+@media (max-width: 1728px) {
+  .leaderboard .screen__bg img {
+    max-width: 85vw;
+  }
+}
 @media (max-width: 1280px) {
   .boongascreen__container {
     gap: 2vw;
+  }
+}
+@media (max-width: 1024px) {
+  .leaderboard .screen__bg img {
+    height: auto;
+    max-height: 75vw;
+    max-width: 90vw;
   }
 }

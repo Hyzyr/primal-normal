@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const LeaderboardScreen = () => {
+  useEffect(() => {
+    document.body.classList.add("hideButtons");
+  });
   return (
     <div className="leaderboard screen">
       <div className="leaderboard__bg screen__bg">
@@ -37,6 +40,7 @@ const LeaderboardScreen = () => {
         <div className="leaderboard__item-bg">
           <img src="/images/leaderboard/frame-1.png" alt="stone" />
         </div>
+        <div className="leaderboard__item-text">1 John Johnson</div>
       </div>
       <div className="leaderboard__item _second">
         <div className="leaderboard__item-image _lg">
@@ -45,6 +49,7 @@ const LeaderboardScreen = () => {
         <div className="leaderboard__item-bg">
           <img src="/images/leaderboard/frame-2.png" alt="stone" />
         </div>
+        <div className="leaderboard__item-text">2 Jones Williams</div>
       </div>
       <div className="leaderboard__item _third">
         <div className="leaderboard__item-image _lg">
@@ -53,6 +58,7 @@ const LeaderboardScreen = () => {
         <div className="leaderboard__item-bg">
           <img src="/images/leaderboard/frame-3.png" alt="stone" />
         </div>
+        <div className="leaderboard__item-text">3 Michael Brown</div>
       </div>
     </div>
   );

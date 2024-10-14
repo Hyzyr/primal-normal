@@ -2,6 +2,12 @@
   @include header-1540;
   @include boonga-1540;
 }
+@media (max-width: 1728px) {
+  @include leaderboard-1728;
+}
 @media (max-width: 1280px) {
   @include boonga-1280;
+}
+@media (max-width: 1024px) {
+  @include leaderboard-1024;
 }

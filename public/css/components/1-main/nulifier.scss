@@ -64,6 +64,16 @@ body {
 body.active {
   overflow: hidden;
 }
+body.hideButtons {
+  .home {
+    &-arrow {
+      display: none;
+    }
+    &-volume {
+      display: none;
+    }
+  }
+}
 a {
   cursor: pointer;
   text-decoration: none;
