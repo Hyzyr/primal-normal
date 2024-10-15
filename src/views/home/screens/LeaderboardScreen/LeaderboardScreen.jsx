@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 const LeaderboardScreen = () => {
   useEffect(() => {
     document.body.classList.add("hideButtons");
-  });
+    return () => document.body.classList.remove("hideButtons");
+  }, []);
   return (
     <div className="leaderboard screen">
       <div className="leaderboard__bg screen__bg">
