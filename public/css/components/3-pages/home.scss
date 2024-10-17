@@ -5,9 +5,9 @@
     justify-content: center;
     position: absolute;
     top: 17%;
-    left: 6%;
-    width: 41%;
-    height: 61%;
+    left: 5%;
+    width: 42%;
+    height: 62%;
     z-index: -1;
     background: #2e2e2e;
 
@@ -20,6 +20,43 @@
   }
   &__bg {
     pointer-events: none;
+  }
+  &__content {
+    position: absolute;
+    top: 5%;
+    right: 4%;
+    width: 40%;
+    height: 82%;
+    &-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: 0.4s ease;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+  &__controller {
+    position: absolute;
+    bottom: 5%;
+    right: 4%;
+    display: flex;
+    gap: 3vh;
+    .btn-arrow {
+      font-size: 4vh;
+    }
   }
 }
 .home {
@@ -406,8 +443,8 @@
         left: 3%;
       }
     }
-    &-volume{
-    left: 3%;
+    &-volume {
+      left: 3%;
     }
   }
   .screen {
