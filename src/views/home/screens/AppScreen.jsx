@@ -46,22 +46,22 @@ const AppScreen = ({}) => {
         >
           <img src="/images/app/app-3.png" alt="app-3" />
         </div>
+        <div
+        className="appscreen__content-arrow"
+        onClick={() => {
+          controlTab(tab + 1);
+        }}
+      >
+        →
       </div>
-      <div className="appscreen__controller">
-        <ArrowButton
-          direction={ARROW_DIRECTIONS.LEFT}
-          className="boongascreen__slider-arrow"
-          onClick={() => {
-            controlTab(tab - 1);
-          }}
-        />
-        <ArrowButton
-          direction={ARROW_DIRECTIONS.RIGHT}
-          className="boongascreen__slider-arrow"
-          onClick={() => {
-            controlTab(tab + 1);
-          }}
-        />
+      <div
+        className="appscreen__content-arrow _left"
+        onClick={() => {
+          controlTab(tab - 1);
+        }}
+      >
+        ←
+      </div>
       </div>
       <div className="appscreen__image">
         {/* <img src="/images/placeholder.jpg" alt="placeholder" /> */}

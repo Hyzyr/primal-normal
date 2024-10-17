@@ -485,10 +485,11 @@ svg {
 }
 .appscreen__content {
   position: absolute;
-  top: 5%;
+  top: 50%;
   right: 4.3%;
   width: 40%;
   height: 82%;
+  transform: translateY(-50%);
 }
 .appscreen__content-image {
   position: absolute;
@@ -510,15 +511,18 @@ svg {
 .appscreen__content-image.active {
   opacity: 1;
 }
-.appscreen__controller {
+.appscreen__content-arrow {
+  text-shadow: -0.03em 0.03em #fff;
+  color: #a41100;
   position: absolute;
-  bottom: 5%;
-  right: 4%;
-  display: flex;
-  gap: 3vh;
-}
-.appscreen__controller .btn-arrow {
+  top: 50%;
+  left: 96%;
+  transform: translateY(-50%);
   font-size: 4vh;
+}
+.appscreen__content-arrow._left {
+  right: 96%;
+  left: unset;
 }
 
 .home {
