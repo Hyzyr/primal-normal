@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ButtonIcon from './buttons/ButtonIcon';
 
 const AudioController = () => {
-  const [isMuted, setMuted] = useState(false);
+  const [isMuted, setMuted] = useState(true);
   const ref = useRef(null);
   const buttonSound = useRef(null);
 
