@@ -512,14 +512,15 @@ svg {
   opacity: 1;
 }
 .appscreen__content-arrow {
-  text-shadow: -0.35px 0.35px #fff;
-  color: #a41100;
+  cursor: pointer;
   position: absolute;
   top: 50%;
   left: 96%;
+  text-shadow: -0.35px 0.35px #fff;
+  color: #a41100;
   transform: translateY(-50%);
   font-size: 4vh;
-  cursor: pointer;
+  filter: drop-shadow(2px 2px 14px white);
 }
 .appscreen__content-arrow._left {
   right: 96%;
