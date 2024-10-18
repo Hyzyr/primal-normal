@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { getLeaderBoard } from './api/getLeaderBoard';
+import React, { useEffect, useState } from "react";
+import { getLeaderBoard } from "./api/getLeaderBoard";
+import { leaderboardData } from "./api/data";
 
 const LeaderboardScreen = () => {
-  const [state, setState] = useState(null);
+  const [state, setState] = useState(leaderboardData);
+
+  // useEffect(() => {
+  //   getLeaderBoard()
+  //     .then(({ status, data }) => {
+  //       if (data) setState(data);
+  //       console.log(data);
+  //     })
+  //     .catch((error) => console.log(error.message));
+  // }, []);
 
   useEffect(() => {
-    getLeaderBoard()
-      .then(({ status, data }) => {
-        if (data) setState(data);
-        console.log(data);
-      })
-      .catch((error) => console.log(error.message));
-  }, []);
-
-  useEffect(() => {
-    document.body.classList.add('hideButtons');
-    return () => document.body.classList.remove('hideButtons');
+    document.body.classList.add("hideButtons");
+    return () => document.body.classList.remove("hideButtons");
   }, []);
 
   if (!state) return <LoadingScreen />;
@@ -29,7 +30,7 @@ const LeaderboardScreen = () => {
         />
       </div>
       <ul className="leaderboard__list">
-        <li style={{ height: '15px' }}></li>
+        <li style={{ height: "15px" }}></li>
         {state.slice(3, 15).map((data, index) => (
           <li key={index}>
             {/* <img
@@ -52,19 +53,19 @@ const LeaderboardScreen = () => {
             url={state[0].userURL}
             imgURL={state[0].imgURL}
             username={state[0].userFullname}
-            type={'first'}
+            type={"first"}
           />
           <LeaderStone
             url={state[1].userURL}
             imgURL={state[1].imgURL}
             username={state[1].userFullname}
-            type={'second'}
+            type={"second"}
           />
           <LeaderStone
             url={state[2].userURL}
             imgURL={state[2].imgURL}
             username={state[2].userFullname}
-            type={'third'}
+            type={"third"}
           />
         </>
       )}
@@ -85,26 +86,26 @@ const LoadingScreen = () => {
         <ul className="leaderboard__list">
           <li>loading</li>
         </ul>
-        <LeaderStone username={'loading'} type={'first'} />
-        <LeaderStone username={'loading'} type={'second'} />
-        <LeaderStone username={'loading'} type={'third'} />
+        <LeaderStone username={"loading"} type={"first"} />
+        <LeaderStone username={"loading"} type={"second"} />
+        <LeaderStone username={"loading"} type={"third"} />
       </div>
     </>
   );
 };
 
 const LeaderStone = ({ url, imgURL, username, type }) => {
-  const profileName = url ? url.replace('https://x.com/', '') : '';
+  const profileName = url ? url.replace("https://x.com/", "") : "";
 
   return (
     <div className={`leaderboard__item _${type}`}>
       {!imgURL && (
-        <div className="leaderboard__item-image _lg">
+        <div className="leaderboard__item-image">
           <img src="/images/placeholder-stone.png" alt="stone" />
         </div>
       )}
       {(imgURL || profileName) && (
-        <div className="leaderboard__item-image _lg">
+        <div className="leaderboard__item-image">
           <img
             src={`https://unavatar.io/twitter/${profileName}`}
             alt={profileName}
@@ -113,13 +114,13 @@ const LeaderStone = ({ url, imgURL, username, type }) => {
         </div>
       )}
       <div className="leaderboard__item-bg">
-        {type === 'first' && (
+        {type === "first" && (
           <img src="/images/leaderboard/frame-1.png" alt="stone" />
         )}
-        {type === 'second' && (
+        {type === "second" && (
           <img src="/images/leaderboard/frame-2.png" alt="stone" />
         )}
-        {type === 'third' && (
+        {type === "third" && (
           <img src="/images/leaderboard/frame-3.png" alt="stone" />
         )}
       </div>

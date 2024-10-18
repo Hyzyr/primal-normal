@@ -891,6 +891,9 @@ svg {
   transition: 0.3s ease;
 }
 
+.boongascreen {
+  top: 55%;
+}
 .boongascreen__content {
   position: absolute;
   bottom: 4.5%;
@@ -1295,11 +1298,11 @@ svg {
   z-index: 0;
 }
 .leaderboard__item-image {
-  width: 70%;
-  height: 63%;
+  width: 79%;
+  height: 67%;
   position: absolute;
-  top: 16%;
-  right: 12%;
+  top: 7%;
+  right: 8%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1308,12 +1311,6 @@ svg {
 .leaderboard__item-image img {
   width: 100%;
   height: 100%;
-}
-.leaderboard__item-image._lg {
-  width: 75%;
-  height: 67%;
-  top: 8%;
-  right: 10%;
 }
 .leaderboard__item-bg {
   width: 100%;
@@ -1347,17 +1344,26 @@ svg {
   top: -2%;
   left: 21%;
 }
+.leaderboard__item._first .leaderboard__item-image {
+  width: 75%;
+  height: 64%;
+  top: 16%;
+  right: 10%;
+}
 .leaderboard__item._second {
   width: 10.5%;
   height: 21%;
-  top: 27%;
-  left: 12%;
+  top: 28%;
+  left: 11.5%;
 }
 .leaderboard__item._third {
   width: 10.5%;
   height: 22%;
   top: 31%;
   left: 30%;
+}
+.leaderboard__item._third .leaderboard__item-text {
+  bottom: 9%;
 }
 .leaderboard .screen__bg img {
   height: auto;
