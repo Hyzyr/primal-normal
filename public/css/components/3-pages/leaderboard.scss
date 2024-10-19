@@ -4,20 +4,58 @@
   bottom: 0;
   &__list {
     font-size: 2.2vw;
-    text-shadow: -0.03em 0.03em #fff;
     font-weight: 700;
     line-height: 1;
     position: absolute;
-    top: 18%;
+    top: 19%;
     right: 11.5%;
     width: 25%;
-    height: 70%;
+    height: 71.2%;
     overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    gap: 0.2em;
     padding-right: 10px;
+    padding-bottom: 15px;
+
     @include hideScroll;
     li {
       word-break: break-all;
-      @include ellipsis(1);
+      display: flex;
+      align-items: center;
+      gap: 0.25em;
+      text-overflow: ellipsis;
+      color: #4e2518;
+      text-shadow: -0.03em 0.03em #fff;
+      text-wrap: nowrap;
+      overflow: hidden;
+      flex-shrink: 0;
+
+      a {
+        color: inherit;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 0.75em;
+        flex-grow: 1;
+      }
+
+      .user-image {
+        overflow: hidden;
+        border-radius: 50%;
+        width: 0.75em;
+        height: 0.75em;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+      .golden-stone {
+        width: 1em;
+        height: 1em;
+        object-fit: contain;
+        flex-shrink: 0;
+      }
     }
   }
   &__item {

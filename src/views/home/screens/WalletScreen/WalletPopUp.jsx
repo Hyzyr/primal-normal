@@ -2,35 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import ButtonIcon from 'src/components/buttons/ButtonIcon';
 import { WALLET_STATES } from './api/walletCheck';
+import { getStickerURL } from './WalletScreen';
 
 const emptyImage = '/images/stickers/empty.png';
+const defaultSticker = getStickerURL(WALLET_STATES.NOT_REGISTERED);
 
-const WalletPopUp = ({
-  active,
-  setActive,
-  sticker = WALLET_STATES.NOT_REGISTERED,
-}) => {
+const WalletPopUp = ({ active, setActive, sticker = defaultSticker }) => {
   const [stickerImage, setStickerImage] = useState(emptyImage);
 
   useEffect(() => {
-    if (active && sticker) setStickerImage(getSticker());
+    if (active && sticker) setStickerImage(sticker);
     else setStickerImage(emptyImage);
   }, [active, sticker]);
-
-  const getSticker = () => {
-    switch (sticker) {
-      case WALLET_STATES.FCFS_FOUND:
-        return '/images/stickers/eligible-fcfs.png';
-      case WALLET_STATES.NOT_REGISTERED:
-        return '/images/stickers/fail-sticker.png';
-      case WALLET_STATES.GTD_FOUND:
-        return '/images/stickers/gtd-accepted.png';
-      case WALLET_STATES.GTD_ACCEPTED:
-        return '/images/stickers/eligible-gtd.png';
-      default:
-        return null;
-    }
-  };
 
   return createPortal(
     <div

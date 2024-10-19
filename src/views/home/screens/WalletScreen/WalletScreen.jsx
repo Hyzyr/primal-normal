@@ -3,10 +3,36 @@ import Input from 'src/components/input/Input';
 import { WalletPopUp } from '.';
 import { checkWalletFromApi, WALLET_STATES } from './api/walletCheck';
 
+export const getStickerURL = (sticker) => {
+  switch (sticker) {
+    case WALLET_STATES.FCFS_FOUND:
+      return '/images/stickers/eligible-fcfs.png';
+    case WALLET_STATES.NOT_REGISTERED:
+      return '/images/stickers/fail-sticker.png';
+    case WALLET_STATES.GTD_FOUND:
+      return '/images/stickers/gtd-accepted.png';
+    case WALLET_STATES.GTD_ACCEPTED:
+      return '/images/stickers/eligible-gtd.png';
+    default:
+      return null;
+  }
+};
+
 const WalletScreen = () => {
   const [popup, setPopup] = useState(false);
-  const [sticker, setSticker] = useState('');
+  const [sticker, setSticker] = useState(null);
+  const [showSticker, setShowSticker] = useState(false);
+
+  const togglePopup = (newState) => {
+    if (!newState && sticker) {
+      setShowSticker(true);
+    }
+
+    setPopup(newState);
+  };
+
   const checkWallet = (value) => {
+    setShowSticker(false);
     checkWalletFromApi(value)
       .then(({ status, data }) => {
         if (status !== 200) console.log('respoonse data ', data);
@@ -19,6 +45,7 @@ const WalletScreen = () => {
         console.log('error checkWalletFromApi: \n', error);
       });
   };
+
   return (
     <>
       <div className="walletscreen screen">
@@ -31,10 +58,19 @@ const WalletScreen = () => {
               placeholder="check your wallet"
               onSubmit={(value) => checkWallet(value)}
             />
+            {showSticker && (
+              <div className="walletscreen__sticker">
+                <img src={getStickerURL(sticker)} alt={sticker} />
+              </div>
+            )}
           </div>
         </div>
       </div>
-      <WalletPopUp active={popup} setActive={setPopup} sticker={sticker} />
+      <WalletPopUp
+        active={popup}
+        setActive={togglePopup}
+        sticker={sticker ? getStickerURL(sticker) : undefined}
+      />
     </>
   );
 };
