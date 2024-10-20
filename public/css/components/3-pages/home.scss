@@ -250,6 +250,7 @@
         height: auto;
       }
     }
+
     audio {
       display: none;
     }
@@ -442,6 +443,16 @@
         width: 100%;
         height: 100%;
       }
+    }
+    &-title {
+      position: absolute;
+      bottom: 9.4%;
+      left: 6.2%;
+      z-index: 1;
+      color: #380202;
+      font-size: 5.6vh;
+      letter-spacing: -0.03em;
+      text-shadow: -0.03em 0.03em $white;
     }
     &-close {
       position: absolute;

@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import PaginationButton from "src/components/buttons/PaginationButton";
-import usePager from "src/hooks/usePager";
-import { wallImages } from "./constants";
-import WallPopUp from "./WallPopUp";
+import React, { useEffect, useState } from 'react';
+import PaginationButton from 'src/components/buttons/PaginationButton';
+import usePager from 'src/hooks/usePager';
+import { wallImages } from './constants';
+import WallPopUp from './WallPopUp';
 
 const WallScreen = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const slides = usePager({ items: wallImages, itemsPerRow: 8 });
   const [popUp, setPopUp] = useState(false);
-  const [imagePath, setImagePath] = useState("");
+  const [imagePath, setImagePath] = useState('');
 
-  const popUpControl = (image) => {
-    setImagePath(image);
-    setPopUp(!popUp);
+  const popUpControl = (data) => {
+    setImagePath(data.fileName);
+    setPopUp(data.title);
   };
 
   return (
@@ -26,7 +26,7 @@ const WallScreen = () => {
               image={item.fileName}
               alt={item.title}
               onClick={() => {
-                popUpControl(item.fileName);
+                popUpControl(item);
               }}
             />
           ))}
@@ -37,7 +37,7 @@ const WallScreen = () => {
               text={i + 1}
               key={i}
               className={`wallscreen__button ${
-                currentPage === i ? "active" : ""
+                currentPage === i ? 'active' : ''
               }`}
               onClick={() => {
                 setCurrentPage(i), setPopUp(false);
@@ -46,7 +46,12 @@ const WallScreen = () => {
           ))}
         </div>
       </div>
-      <WallPopUp popUp={popUp} setPopUp={() => setPopUp()} image={imagePath} />
+      <WallPopUp
+        popUp={!!popUp}
+        setPopUp={setPopUp}
+        image={imagePath}
+        title={popUp}
+      />
     </div>
   );
 };
@@ -58,7 +63,11 @@ const WallItem = ({ text, image, alt, ...props }) => {
       </div>
       <div className="wallscreen__frame-text">{text}</div>
       <div className="wallscreen__frame-bg">
-        <img src="/images/wall/frame-4.png" loading="lazy" alt="app-screen-frame" />
+        <img
+          src="/images/wall/frame-4.png"
+          loading="lazy"
+          alt="app-screen-frame"
+        />
       </div>
     </div>
   );
