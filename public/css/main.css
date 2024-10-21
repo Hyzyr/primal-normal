@@ -537,8 +537,8 @@ svg {
   position: absolute;
   top: 50%;
   left: 96%;
-  text-shadow: -0.35px 0.35px #fff;
-  color: #a41100;
+  text-shadow: -0.65px 1.85px rgba(255, 255, 255, 0.5098039216);
+  color: #2b0501;
   transform: translateY(-50%);
   font-size: 4vh;
   filter: drop-shadow(2px 2px 14px white);
