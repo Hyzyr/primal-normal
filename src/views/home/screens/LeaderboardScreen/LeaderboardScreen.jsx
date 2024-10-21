@@ -5,14 +5,14 @@ import { leaderboardData } from './api/data';
 const LeaderboardScreen = ({ active }) => {
   const [state, setState] = useState(leaderboardData);
 
-  useEffect(() => {
-    getLeaderBoard()
-      .then(({ status, data }) => {
-        if (data) setState(data);
-        console.log(data);
-      })
-      .catch((error) => console.log(error.message));
-  }, []);
+  // useEffect(() => {
+  //   getLeaderBoard()
+  //     .then(({ status, data }) => {
+  //       if (data) setState(data);
+  //       console.log(data);
+  //     })
+  //     .catch((error) => console.log(error.message));
+  // }, []);
 
   useEffect(() => {
     if (active) document.body.classList.add('hideButtons');

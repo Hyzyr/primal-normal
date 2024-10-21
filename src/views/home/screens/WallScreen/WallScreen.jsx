@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import PaginationButton from 'src/components/buttons/PaginationButton';
-import usePager from 'src/hooks/usePager';
-import { wallImages } from './constants';
-import WallPopUp from './WallPopUp';
+import React, { useEffect, useState } from "react";
+import PaginationButton from "src/components/buttons/PaginationButton";
+import usePager from "src/hooks/usePager";
+import { wallImages } from "./constants";
+import WallPopUp from "./WallPopUp";
 
 const WallScreen = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const slides = usePager({ items: wallImages, itemsPerRow: 8 });
   const [popUp, setPopUp] = useState(false);
-  const [imagePath, setImagePath] = useState('');
+  const [imagePath, setImagePath] = useState("");
+  const [popUpLink, setPopUpLink] = useState("#");
 
   const popUpControl = (data) => {
     setImagePath(data.fileName);
     setPopUp(data.title);
+    setPopUpLink(data.link);
   };
 
   return (
@@ -37,7 +39,7 @@ const WallScreen = () => {
               text={i + 1}
               key={i}
               className={`wallscreen__button ${
-                currentPage === i ? 'active' : ''
+                currentPage === i ? "active" : ""
               }`}
               onClick={() => {
                 setCurrentPage(i), setPopUp(false);
@@ -51,6 +53,7 @@ const WallScreen = () => {
         setPopUp={setPopUp}
         image={imagePath}
         title={popUp}
+        link={popUpLink}
       />
     </div>
   );
