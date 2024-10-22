@@ -3,16 +3,27 @@ import { getLeaderBoard } from './api/getLeaderBoard';
 import { leaderboardData } from './api/data';
 
 const LeaderboardScreen = ({ active }) => {
-  const [state, setState] = useState(leaderboardData);
+  const [state, setState] = useState(null);
 
-  // useEffect(() => {
-  //   getLeaderBoard()
-  //     .then(({ status, data }) => {
-  //       if (data) setState(data);
-  //       console.log(data);
-  //     })
-  //     .catch((error) => console.log(error.message));
-  // }, []);
+  useEffect(() => {
+    console.log('>>> ');
+    try {
+      getLeaderBoard()
+        .then(({ status, data }) => {
+          if (data && status === 200 && typeof data === 'object')
+            setState(data);
+          else setState(leaderboardData);
+        })
+        .catch((error) => {
+          console.log('>>> ', data);
+
+          setState(leaderboardData);
+          console.log(error.message);
+        });
+    } catch (error) {
+      console.log('error 2323', error.message);
+    }
+  }, []);
 
   useEffect(() => {
     if (active) document.body.classList.add('hideButtons');
@@ -104,7 +115,7 @@ const LeaderStone = ({ url, imgURL, username, type }) => {
   const profileName = url ? url.replace('https://x.com/', '') : '';
 
   return (
-    <div className={`leaderboard__item _${type}`}>
+    <a href={url} className={`leaderboard__item _${type}`}>
       {!imgURL && (
         <div className="leaderboard__item-image">
           <img src="/images/placeholder-stone.png" alt="stone" />
@@ -134,7 +145,7 @@ const LeaderStone = ({ url, imgURL, username, type }) => {
         )}
       </div>
       <div className="leaderboard__item-text">{username}</div>
-    </div>
+    </a>
   );
 };
 export default LeaderboardScreen;

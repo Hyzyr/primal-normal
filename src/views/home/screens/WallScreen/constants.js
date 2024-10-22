@@ -757,7 +757,7 @@ export const wallImages = [
   {
     title: "Frogpoleon",
     link: "https://x.com/frogpoleon",
-    fileName: "/images/wall/items/biggie-btc.png",
+    fileName: "/images/wall/items/frogpoleon.png",
   },
   {
     title: "WD40 W4nkpire",
