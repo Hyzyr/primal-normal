@@ -47,13 +47,13 @@ const BoongaTranslator = ({ appendText }) => {
       <div className="boongascreen__content-row">
         <div className="boongascreen__content-item">
           <Textarea
-            placeholder="hall checker"
+            placeholder="Boonga translate"
             value={value}
             onChange={({ target }) => setValue(target.value)}
           />
         </div>
         <div className="boongascreen__content-item">
-          <Textarea placeholder="hall checker" value={translation} disabled />
+          <Textarea placeholder="Boonga translate" value={translation} disabled />
         </div>
         <div className="boongascreen__content-tools">
           <ButtonIcon
