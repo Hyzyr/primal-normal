@@ -104,7 +104,7 @@ export const wallImages = [
   {
     title: "Xcpinata",
     link: "https://twitter.com/XCPinata",
-    fileName: "/images/wall/items/xcpinata-1.png",
+    fileName: "/images/wall/items/xcpinata.png",
     comment: "",
   },
   {
@@ -119,12 +119,12 @@ export const wallImages = [
     fileName: "/images/wall/items/dazza9.png",
     comment: "",
   },
-  {
-    title: "Langerius",
-    link: "https://twitter.com/langeriuseth",
-    fileName: "/images/wall/items/lemonhaze.png",
-    comment: "",
-  },
+  // {
+  //   title: "Langerius",
+  //   link: "https://twitter.com/langeriuseth",
+  //   fileName: "/images/wall/items/lemonhaze.png",
+  //   comment: "",
+  // },
   {
     title: "D0r10n",
     link: "https://twitter.com/d0r10n",
@@ -378,9 +378,9 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "MrE",
+    title: "ItsaMrE",
     link: "https://x.com/MrE_Btc",
-    fileName: "/images/wall/items/mredogtagnft.png",
+    fileName: "/images/wall/items/itsamre.png",
     comment: "",
   },
   // {
@@ -410,7 +410,7 @@ export const wallImages = [
   {
     title: "GMSats",
     link: "https://x.com/BitcoinNL",
-    fileName: "/images/wall/items/nacoleon-btc.png",
+    fileName: "/images/wall/items/gm-sats.png",
     comment: "",
   },
   {
@@ -466,12 +466,12 @@ export const wallImages = [
   //   fileName: "/images/wall/items/",
   // comment: "",
   // },
-  // {
-  //   title: "Adultarts",
-  //   link: "https://x.com/adultarts",
-  //   fileName: "/images/wall/items/",
-  // comment: "",
-  // },
+  {
+    title: "Jen Adultarts",
+    link: "https://x.com/adultarts",
+    fileName: "/images/wall/items/jen.png",
+    comment: "",
+  },
   {
     title: "CiseroSarts",
     link: "https://x.com/cicero_sats",
@@ -548,12 +548,12 @@ export const wallImages = [
     fileName: "/images/wall/items/violettazironi.png",
     comment: "",
   },
-  // {
-  //   title: "0xBoozy",
-  //   link: "https://x.com/0xBoozy",
-  //   fileName: "/images/wall/items/",
-  // comment: "",
-  // },
+  {
+    title: "0xBoozy Shamim Khan",
+    link: "https://x.com/0xBoozy",
+    fileName: "/images/wall/items/shamim-khan.png",
+    comment: "",
+  },
   {
     title: "CryptoShira",
     link: "https://x.com/CryptoShira",
@@ -627,17 +627,17 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Mr BRC / AReason2Die",
+    title: "Mr BRC AReason2Die",
     link: "https://x.com/MrBRC0",
     fileName: "/images/wall/items/mr-brc.png",
     comment: "In deep thought over this one!",
   },
-  // {
-  //   title: "OneMinNFT",
-  //   link: "https://x.com/ONEMINNFT",
-  //   fileName: "/images/wall/items/",
-  // comment: "",
-  // },
+  {
+    title: "1minute",
+    link: "https://x.com/ONEMINNFT",
+    fileName: "/images/wall/items/1minute.png",
+    comment: "",
+  },
   {
     title: "Pranksy",
     link: "https://x.com/pranksy",
