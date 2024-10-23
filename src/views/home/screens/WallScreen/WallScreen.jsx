@@ -5,10 +5,22 @@ import { wallImages } from './constants';
 import WallPopUp from './WallPopUp';
 
 const WallScreen = () => {
+  const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const slides = usePager({ items: wallImages, itemsPerRow: 8 });
+  const slides = usePager({ items: data, itemsPerRow: 8 });
   const [popup, setPopup] = useState(false);
   const [popupData, setPopupData] = useState(null);
+
+  useEffect(() => {
+    fetch('/data/hall-data.json')
+      .then((data) => data.json())
+      .then((data) => {
+        if (data) setData(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const popupControl = (data) => {
     setPopup(true);
@@ -25,17 +37,18 @@ const WallScreen = () => {
     <div className="wallscreen screen">
       <div className="wallscreen__container">
         <div className="wallscreen__container-row">
-          {slides[currentPage].map((item, i) => (
-            <WallItem
-              key={i}
-              text={item.title}
-              image={item.fileName}
-              alt={item.title}
-              onClick={() => {
-                popupControl(item);
-              }}
-            />
-          ))}
+          {slides[currentPage] &&
+            slides[currentPage].map((item, i) => (
+              <WallItem
+                key={i}
+                text={item.title}
+                image={item.fileName}
+                alt={item.title}
+                onClick={() => {
+                  popupControl(item);
+                }}
+              />
+            ))}
         </div>
         <div className="wallscreen__container-pagination">
           {slides.map((_, i) => (

@@ -926,9 +926,17 @@ svg {
   letter-spacing: -0.03em;
   text-shadow: -0.023em 0.03em rgba(255, 255, 255, 0.5098039216);
   transition: 0.2s ease-out;
+  line-height: 120%;
   display: flex;
   align-items: center;
   gap: 0.15em;
+  max-width: 42%;
+}
+.wallscreen__popup-title span {
+  max-width: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .wallscreen__popup-title img {
   width: 1em;
@@ -963,7 +971,9 @@ svg {
   height: 50%;
   z-index: 1;
 }
-.wallscreen__popup-comment p {
+.wallscreen__popup-comment p,
+.wallscreen__popup-comment pre {
+  font-family: "Primal Nomad Alphabet", sans-serif;
   color: hsl(4, 73%, 28%);
   font-size: 5vh;
   line-height: 120%;

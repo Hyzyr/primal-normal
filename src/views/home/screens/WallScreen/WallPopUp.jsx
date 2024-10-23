@@ -22,7 +22,14 @@ const WallPopup = ({ title, popup, setPopup, data }) => {
         )}
         {data?.comments && (
           <div className="wallscreen__popup-comment">
-            <p>{data?.comments}</p>
+            <p>
+              {data.comments.split('\n').map((line, index) => (
+                <>
+                  {index !== 0 && <br />}
+                  {line}
+                </>
+              ))}
+            </p>
           </div>
         )}
       </div>
@@ -35,7 +42,7 @@ const WallPopup = ({ title, popup, setPopup, data }) => {
             href={data.link}
             target="_blank"
             className="wallscreen__popup-title">
-            {data.title}
+            <span>{data.title}</span>
             <img src="/images/twitter-logo.png" alt="twitter-logo" />
           </a>
         </>

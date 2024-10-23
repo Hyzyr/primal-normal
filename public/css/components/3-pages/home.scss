@@ -450,16 +450,27 @@
       bottom: 7.4%;
       left: 6.2%;
       z-index: 1;
+
+      //font
       color: #380202;
       font-size: 5.6vh;
       letter-spacing: -0.03em;
       text-shadow: -0.023em 0.03em #ffffff82;
       transition: 0.2s ease-out;
+      line-height: 120%;
 
       //display
       display: flex;
       align-items: center;
       gap: 0.15em;
+      max-width: 42%;
+
+      span {
+        max-width: 80%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
 
       img {
         width: 1em;
@@ -496,7 +507,9 @@
       height: 50%;
       z-index: 1;
 
-      p {
+      p,
+      pre {
+        font-family: $font-main;
         color: hsl(4, 73%, 28%);
         font-size: 5vh;
         line-height: 120%;
