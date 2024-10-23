@@ -24,13 +24,13 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "ETH Apple",
+    title: "404 Apple",
     link: "https://twitter.com/eth_apple",
     fileName: "/images/wall/items/404-apple.png",
     comment: "",
   },
   {
-    title: "Ola",
+    title: "Ola Elixir",
     link: "https://twitter.com/thegreatola",
     fileName: "/images/wall/items/ola-elixir.png",
     comment: "",
@@ -48,7 +48,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Nacoleon",
+    title: "Nacoleon btc",
     link: "https://twitter.com/1nacoleon1",
     fileName: "/images/wall/items/nacoleon-btc.png",
     comment: "",
@@ -60,7 +60,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Nefu",
+    title: "Nefu fb",
     link: "https://twitter.com/0xNefu",
     fileName: "/images/wall/items/nefu-fb.png",
     comment: "",
@@ -102,7 +102,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Xcpinata",
+    title: "XcPinata",
     link: "https://twitter.com/XCPinata",
     fileName: "/images/wall/items/xcpinata.png",
     comment: "",
@@ -114,17 +114,17 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Dazza",
+    title: "Dazza9",
     link: "https://twitter.com/dazza9x",
     fileName: "/images/wall/items/dazza9.png",
     comment: "",
   },
-  // {
-  //   title: "Langerius",
-  //   link: "https://twitter.com/langeriuseth",
-  //   fileName: "/images/wall/items/lemonhaze.png",
-  //   comment: "",
-  // },
+  {
+    title: "LANGERIUS",
+    link: "https://twitter.com/langeriuseth",
+    fileName: "/images/wall/items/langerius.png",
+    comment: "",
+  },
   {
     title: "D0r10n",
     link: "https://twitter.com/d0r10n",
@@ -174,7 +174,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Barbra.sats",
+    title: "Barbra (THEWagmiGirl)",
     link: "https://twitter.com/thatwagmigirl",
     fileName: "/images/wall/items/barbra.png",
     comment: "",
@@ -222,7 +222,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Chartfu",
+    title: "ChartFu",
     link: "https://twitter.com/ChartFuMonkey",
     fileName: "/images/wall/items/chartfu.png",
     comment: "",
@@ -240,7 +240,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Demon",
+    title: "DEmon",
     link: "https://twitter.com/ToTheDemon",
     fileName: "/images/wall/items/demon.png",
     comment: "",
@@ -252,37 +252,37 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Ceaser",
+    title: "Nycryptopheen",
     link: "https://twitter.com/polkapheen",
     fileName: "/images/wall/items/nycryptopheen-eth.png",
     comment: "",
   },
   {
-    title: "Eric Nelson",
+    title: "Blessed (Eric Nelson)",
     link: "https://twitter.com/EricNelson",
     fileName: "/images/wall/items/blessed.png",
     comment: "",
   },
   {
-    title: "Marlon",
+    title: "Marlonif",
     link: "https://twitter.com/Marlonif",
     fileName: "/images/wall/items/marlonif.png",
     comment: "",
   },
   {
-    title: "Miguel",
+    title: "MigueL",
     link: "https://twitter.com/miguel_am88",
     fileName: "/images/wall/items/miguel.png",
     comment: "",
   },
   {
-    title: "Pyro",
+    title: "Pyroshi",
     link: "https://twitter.com/pyronft",
     fileName: "/images/wall/items/pyroshi.png",
     comment: "",
   },
   {
-    title: "Wale",
+    title: "Wale moca",
     link: "https://twitter.com/waleswoosh",
     fileName: "/images/wall/items/wale-moca.png",
     comment: "",
@@ -324,7 +324,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Kevsus",
+    title: "Kevin Susanto",
     link: "https://x.com/KevinSusanto",
     fileName: "/images/wall/items/kevin-susanto.png",
     comment: "ifgggg",
@@ -336,7 +336,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Mr Anchovy",
+    title: "MrAnchovy",
     link: "https://x.com/Mr_Anchovy_",
     fileName: "/images/wall/items/mr-anchovy.png",
     comment: "Wen",
@@ -348,13 +348,13 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Joe Rabbit",
+    title: "JoeOrdinals",
     link: "https://x.com/JoeOrdinals",
     fileName: "/images/wall/items/joeordinals.png",
     comment: "",
   },
   {
-    title: "Paris",
+    title: "PARIS",
     link: "https://x.com/PARIS_sats",
     fileName: "/images/wall/items/paris.png",
     comment: "",
@@ -390,19 +390,19 @@ export const wallImages = [
   // comment: "",
   // },
   {
-    title: "Brad",
+    title: "Brrrraad",
     link: "https://x.com/Brrrraad",
     fileName: "/images/wall/items/brrrraad.png",
     comment: "",
   },
   {
     title: "RememberMe",
-    link: "#",
+    link: "https://x.com/RememberMe_NFT",
     fileName: "/images/wall/items/rememberme.png",
     comment: "",
   },
   {
-    title: "Somana",
+    title: "Somana4",
     link: "https://x.com/somanovich",
     fileName: "/images/wall/items/somana4.png",
     comment: "",
@@ -426,7 +426,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "B4Kenny",
+    title: "KeNNy",
     link: "https://x.com/b4kenny",
     fileName: "/images/wall/items/kenny.png",
     comment: "",
@@ -473,7 +473,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "CiseroSarts",
+    title: "Cisero",
     link: "https://x.com/cicero_sats",
     fileName: "/images/wall/items/cicero.png",
     comment: "",
@@ -485,24 +485,24 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "HollanderAdam",
+    title: "Adam Hollander",
     link: "https://x.com/HollanderAdam",
     fileName: "/images/wall/items/adam-hollander.png",
     comment: "",
   },
   {
-    title: "Scrilla",
+    title: "Rare Scrilla",
     link: "https://x.com/ScrillaVentura",
     fileName: "/images/wall/items/rare-scrilla.png",
     comment: "Ooof",
   },
   {
-    title: "TommyTwoClubs",
+    title: "Tommy Two Clubs",
     link: "https://x.com/TommyTwoClubs",
     fileName: "/images/wall/items/tommy-two-clubs.png",
   },
   {
-    title: "PawelDuko",
+    title: "Pawel Duko",
     link: "https://x.com/PawelDudko",
     fileName: "/images/wall/items/pawel-dudko.png",
     comment: "",
@@ -520,7 +520,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "NFTBawsa",
+    title: "NFT Bawsa",
     link: "https://x.com/nftbawsa",
     fileName: "/images/wall/items/nft-bawsa.png",
   },
@@ -531,7 +531,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "MadisonOlivia",
+    title: "Madison Olivia",
     link: "https://x.com/madisonoliviaa_",
     fileName: "/images/wall/items/madison-olivia.png",
     comment: "",
@@ -555,13 +555,13 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "CryptoShira",
+    title: "Shira BTC",
     link: "https://x.com/CryptoShira",
     fileName: "/images/wall/items/shira-btc.png",
     comment: "",
   },
   {
-    title: "Pryzmxbt",
+    title: "PRYZM",
     link: "https://x.com/pryzmxbt",
     fileName: "/images/wall/items/pryzm.png",
     comment: "",
@@ -573,13 +573,13 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Bitoordileone",
+    title: "Bito Ordileone",
     link: "https://x.com/bitoordileone",
     fileName: "/images/wall/items/bito-ordileone.png",
     comment: "",
   },
   {
-    title: "Otograf_jp",
+    title: "OTO",
     link: "https://x.com/otograf_jp",
     fileName: "/images/wall/items/oto.png",
     comment: "",
@@ -597,7 +597,7 @@ export const wallImages = [
     comment: "Oof",
   },
   {
-    title: "Darklord.sats",
+    title: "Kingfrogbtc",
     link: "https://x.com/kingfrogbtc",
     fileName: "/images/wall/items/kingfrogbtc.png",
     comment: "",
@@ -621,13 +621,13 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "VonDoom",
+    title: "Von Doom",
     link: "https://x.com/CryptoVonDoom",
     fileName: "/images/wall/items/vondoom.png",
     comment: "",
   },
   {
-    title: "Mr BRC AReason2Die",
+    title: "Mr BRC",
     link: "https://x.com/MrBRC0",
     fileName: "/images/wall/items/mr-brc.png",
     comment: "In deep thought over this one!",
@@ -651,13 +651,13 @@ export const wallImages = [
     comment: "discord again",
   },
   {
-    title: "Solemn",
+    title: "Stranger Solemn",
     link: "https://x.com/strangersolemn",
     fileName: "/images/wall/items/stranger-solemn.png",
     comment: "",
   },
   {
-    title: "MrE",
+    title: "MrEdogtagnft",
     link: "https://x.com/MrEdogtagnft",
     fileName: "/images/wall/items/mredogtagnft.png",
     comment: "",
@@ -681,7 +681,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Vincent",
+    title: "Vincent Cryptolution",
     link: "https://x.com/cryptolution101",
     fileName: "/images/wall/items/vincent-cryptolution.png",
     comment: "",
@@ -693,7 +693,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Bolt",
+    title: "BoltXBT",
     link: "https://x.com/BoltXBT",
     fileName: "/images/wall/items/boltxbt.png",
     comment: "",
@@ -711,7 +711,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "theartist.btc",
+    title: "TheArtistBTC",
     link: "https://x.com/TheArtistBTC",
     fileName: "/images/wall/items/theartistbtc.png",
     comment:
@@ -748,20 +748,20 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Erik",
+    title: "Erik BRC20Coins",
     link: "https://x.com/BRC20Coins",
     fileName: "/images/wall/items/erik-brc20coins.png",
     comment: "",
   },
   {
-    title: "Basel de' Medici",
+    title: "Bassel Amin",
     link: "https://x.com/bassel_amin",
     fileName: "/images/wall/items/bassel-amin.png",
     comment:
       "A - Airwa B - Breathin C - Circulation D - Deficit E  - Environment",
   },
   {
-    title: "Himorasi",
+    title: "Himorazi",
     link: "https://x.com/himorazi",
     fileName: "/images/wall/items/himorazi.png",
     comment: "",
@@ -791,7 +791,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "KFZ",
+    title: "KFZ nfa",
     link: "https://x.com/KFZ_nfa",
     fileName: "/images/wall/items/kfz-nfa.png",
     comment: "",
@@ -803,7 +803,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Yogi",
+    title: "HouseofYogiX",
     link: "https://x.com/HouseofYogiX",
     fileName: "/images/wall/items/houseofyogix.png",
     comment: "",
@@ -815,19 +815,19 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Slick",
+    title: "Slick BTC",
     link: "https://x.com/SlickBTC",
     fileName: "/images/wall/items/slick-btc.png",
     comment: "",
   },
   {
-    title: "Clark",
+    title: "Clark 10x",
     link: "https://x.com/Clark10x",
     fileName: "/images/wall/items/clark10x.png",
     comment: "",
   },
   {
-    title: "Miko",
+    title: "OrdinalMiko",
     link: "https://x.com/OrdinalMiko",
     fileName: "/images/wall/items/ordinalmiko.png",
     comment: "",
@@ -839,25 +839,25 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "pawellwitt",
+    title: "Pawell Witt",
     link: "https://x.com/pawellwitt",
     fileName: "/images/wall/items/pawell-witt.png",
     comment: "",
   },
   {
-    title: "Shiro",
+    title: "DegenShiro",
     link: "https://x.com/degenshiro",
     fileName: "/images/wall/items/degenshiro.png",
     comment: "",
   },
   {
-    title: "Joona",
+    title: "NFTJoona",
     link: "https://x.com/NFTJoona",
     fileName: "/images/wall/items/nftjoona.png",
     comment: "",
   },
   {
-    title: "flame",
+    title: "flame humanonfire",
     link: "https://x.com/humanonfire",
     fileName: "/images/wall/items/flame-humanonfire.png",
     comment: "",
@@ -869,7 +869,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "BitMonk",
+    title: "BitMonk5060",
     link: "https://x.com/BitMonk5060",
     fileName: "/images/wall/items/bitmonk5060.png",
     comment: "",
@@ -899,7 +899,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "Biggie",
+    title: "Biggie_btc",
     link: "https://x.com/Biggie_btc",
     fileName: "/images/wall/items/biggie-btc.png",
     comment: "",
@@ -911,7 +911,7 @@ export const wallImages = [
     comment: "",
   },
   {
-    title: "WD40 W4nkpire",
+    title: "W4nkpire",
     link: "https://x.com/W4nkpire",
     fileName: "/images/wall/items/w4nkpire.png",
     comment: "",
