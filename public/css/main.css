@@ -918,13 +918,29 @@ svg {
 }
 .wallscreen__popup-title {
   position: absolute;
-  bottom: 9.4%;
+  bottom: 7.4%;
   left: 6.2%;
   z-index: 1;
   color: #380202;
   font-size: 5.6vh;
   letter-spacing: -0.03em;
-  text-shadow: -0.03em 0.03em #fff;
+  text-shadow: -0.023em 0.03em rgba(255, 255, 255, 0.5098039216);
+  transition: 0.2s ease-out;
+  display: flex;
+  align-items: center;
+  gap: 0.15em;
+}
+.wallscreen__popup-title img {
+  width: 1em;
+  height: 1em;
+  object-fit: cover;
+  transition: 0.2s ease-out;
+}
+.wallscreen__popup-title:hover {
+  color: #972118;
+}
+.wallscreen__popup-title:hover img {
+  filter: brightness(1.5) saturate(1.2);
 }
 .wallscreen__popup-sticker {
   position: absolute;
@@ -938,6 +954,21 @@ svg {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.wallscreen__popup-comment {
+  position: absolute;
+  top: 30%;
+  right: 6%;
+  width: 37%;
+  height: 50%;
+  z-index: 1;
+}
+.wallscreen__popup-comment p {
+  color: hsl(4, 73%, 28%);
+  font-size: 5vh;
+  line-height: 120%;
+  text-align: center;
+  text-shadow: -0.025em 0.03em rgba(255, 255, 255, 0.5098039216);
 }
 .wallscreen__popup-close {
   position: absolute;

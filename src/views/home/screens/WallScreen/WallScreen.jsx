@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
-import PaginationButton from "src/components/buttons/PaginationButton";
-import usePager from "src/hooks/usePager";
-import { wallImages } from "./constants";
-import WallPopUp from "./WallPopUp";
+import React, { useEffect, useState } from 'react';
+import PaginationButton from 'src/components/buttons/PaginationButton';
+import usePager from 'src/hooks/usePager';
+import { wallImages } from './constants';
+import WallPopUp from './WallPopUp';
 
 const WallScreen = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const slides = usePager({ items: wallImages, itemsPerRow: 8 });
-  const [popUp, setPopUp] = useState(false);
-  const [imagePath, setImagePath] = useState("");
-  const [popUpLink, setPopUpLink] = useState("#");
+  const [popup, setPopup] = useState(false);
+  const [popupData, setPopupData] = useState(null);
 
-  const popUpControl = (data) => {
-    setImagePath(data.fileName);
-    setPopUp(data.title);
-    setPopUpLink(data.link);
+  const popupControl = (data) => {
+    setPopup(true);
+    setPopupData(data);
+  };
+  const togglePopup = (state) => {
+    if (!state) {
+      setTimeout(() => setPopupData(null), 500);
+    }
+    setPopup(state);
   };
 
   return (
@@ -28,7 +32,7 @@ const WallScreen = () => {
               image={item.fileName}
               alt={item.title}
               onClick={() => {
-                popUpControl(item);
+                popupControl(item);
               }}
             />
           ))}
@@ -39,22 +43,16 @@ const WallScreen = () => {
               text={i + 1}
               key={i}
               className={`wallscreen__button ${
-                currentPage === i ? "active" : ""
+                currentPage === i ? 'active' : ''
               }`}
               onClick={() => {
-                setCurrentPage(i), setPopUp(false);
+                setCurrentPage(i), setPopup(false);
               }}
             />
           ))}
         </div>
       </div>
-      <WallPopUp
-        popUp={!!popUp}
-        setPopUp={setPopUp}
-        image={imagePath}
-        title={popUp}
-        link={popUpLink}
-      />
+      <WallPopUp popup={popup} setPopup={togglePopup} data={popupData} />
     </div>
   );
 };

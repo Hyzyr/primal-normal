@@ -444,15 +444,36 @@
         height: 100%;
       }
     }
+
     &-title {
       position: absolute;
-      bottom: 9.4%;
+      bottom: 7.4%;
       left: 6.2%;
       z-index: 1;
       color: #380202;
       font-size: 5.6vh;
       letter-spacing: -0.03em;
-      text-shadow: -0.03em 0.03em $white;
+      text-shadow: -0.023em 0.03em #ffffff82;
+      transition: 0.2s ease-out;
+
+      //display
+      display: flex;
+      align-items: center;
+      gap: 0.15em;
+
+      img {
+        width: 1em;
+        height: 1em;
+        object-fit: cover;
+        transition: 0.2s ease-out;
+      }
+      &:hover {
+        color: #972118;
+
+        img {
+          filter: brightness(1.5) saturate(1.2);
+        }
+      }
     }
     &-sticker {
       position: absolute;
@@ -465,6 +486,22 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
+      }
+    }
+    &-comment {
+      position: absolute;
+      top: 30%;
+      right: 6%;
+      width: 37%;
+      height: 50%;
+      z-index: 1;
+
+      p {
+        color: hsl(4, 73%, 28%);
+        font-size: 5vh;
+        line-height: 120%;
+        text-align: center;
+        text-shadow: -0.025em 0.03em #ffffff82;
       }
     }
     &-close {

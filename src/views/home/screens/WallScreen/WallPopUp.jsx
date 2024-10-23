@@ -5,37 +5,50 @@ const getRandomInt = (max) => {
   return Math.floor(Math.random() * max);
 };
 
-const WallPopUp = ({ title, popUp, setPopUp, image, link }) => {
+const WallPopup = ({ title, popup, setPopup, data }) => {
   const stickerURL = React.useMemo(() => {
     const n = getRandomInt(3);
     return `/images/wall/notification-stickers/coming-soon-${n + 1}.webp`;
-  }, [image]);
-  
+  }, [data]);
+
   return (
-    <div className={`wallscreen__popup ${popUp ? 'active' : ''}`}>
+    <div className={`wallscreen__popup ${popup ? 'active' : ''}`}>
       <div className="wallscreen__popup-bg">
         <img src="/images/wall/popup-hall.webp" alt="frame" />
-        <div className="wallscreen__popup-sticker">
-          <img src={stickerURL} alt="frame" />
-        </div>
+        {!data?.comments && (
+          <div className="wallscreen__popup-sticker">
+            <img src={stickerURL} alt="frame" />
+          </div>
+        )}
+        {data?.comments && (
+          <div className="wallscreen__popup-comment">
+            <p>{data?.comments}</p>
+          </div>
+        )}
       </div>
-      <div className="wallscreen__popup-image">
-        <img src={image} alt="placeholder" />
-      </div>
-      <a href={link} target="_blank" className="wallscreen__popup-title">
-        {title}
-      </a>
+      {data && (
+        <>
+          <div className="wallscreen__popup-image">
+            <img src={data.fileName} alt={data.title} />
+          </div>
+          <a
+            href={data.link}
+            target="_blank"
+            className="wallscreen__popup-title">
+            {data.title}
+            <img src="/images/twitter-logo.png" alt="twitter-logo" />
+          </a>
+        </>
+      )}
 
       <ButtonIcon
         icon={'/images/components/cross.png'}
         alt={'close'}
         addClass="wallscreen__popup-close"
-        onClick={() => {
-          setPopUp(!popUp);
-        }}
+        onClick={() => setPopup(false)}
       />
     </div>
   );
 };
 
-export default WallPopUp;
+export default WallPopup;
