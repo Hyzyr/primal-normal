@@ -547,6 +547,12 @@ svg {
   right: 96%;
   left: unset;
 }
+.appscreen.screen {
+  top: 54%;
+}
+.appscreen .screen__bg img {
+  height: 80vh;
+}
 
 .home {
   display: flex;
